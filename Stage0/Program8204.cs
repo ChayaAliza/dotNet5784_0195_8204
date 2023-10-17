@@ -12,7 +12,6 @@ namespace Stage0
         {
            
             Console.WriteLine("im so hungry and nervous ");
-           
 
         }
     }
