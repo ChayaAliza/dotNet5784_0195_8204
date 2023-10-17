@@ -14,7 +14,6 @@
             Console.Write("Enter your name: ");
             string userName = Console.ReadLine();
             Console.Write("{0}, welcome to my first console application", userName);
-            Console.Beep();
         }
         static partial void Welcome8204();
 
