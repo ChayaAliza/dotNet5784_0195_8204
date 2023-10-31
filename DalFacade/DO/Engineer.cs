@@ -1,14 +1,18 @@
 ﻿namespace DO;
-
-/// <param name="Id">Personal unique ID of the engineer (as in national id card)</param>
-/// <param name="Name">Private Name of the engineer</param>
+/// <summary>
+/// 
+/// </summary>
+/// <param name="Id"></param>
+/// <param name="Name"></param>
 /// <param name="Email"></param>
-
+/// <param name="Level"></param>
+/// <param name="Cost"></param>
 public record Engineer
 (
       int Id,
       string? Name = null,
       string? Email = null,
-      //EngineerExperience? Level,
+      // EngineerExperience? Level,
       double? Cost = null
-);
+)
+{ public Engineer() : this(0) { } }//empty ctor.

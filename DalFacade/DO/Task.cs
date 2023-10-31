@@ -1,6 +1,21 @@
 ﻿namespace DO;
-
-
+/// <summary>
+/// 
+/// </summary>
+/// <param name="Id"></param>
+/// <param name="Description"></param>
+/// <param name="Allas"></param>
+/// <param name="MilesStone"></param>
+/// <param name="CreatedAt"></param>
+/// <param name="Start"></param>
+/// <param name="ScheduledDate"></param>
+/// <param name="ForecastDate"></param>
+/// <param name="DeadLine"></param>
+/// <param name="Complete"></param>
+/// <param name="Deliverables"></param>
+/// <param name="Remarks"></param>
+/// <param name="EngineerId"></param>
+/// <param name="CopmlexityLevel"></param>
 public record Task
 (
     int Id,
@@ -16,6 +31,14 @@ public record Task
     string? Deliverables = null,
     string? Remarks = null,
     int? EngineerId = null
-    //EngineerExperience? CopmlexityLevel
-);
+//EngineerExperience? CopmlexityLevel
+)
+{
+    public Task() : this(0) { } //empty ctor.
+    public Task(int id , string Description , string Allas , bool MilesStone , DateTime CreatedAt, DateTime Start, DateTime ScheduledDate, DateTime ForecastDate)
+    {
+          
+    }
+}
+
 
