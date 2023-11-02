@@ -32,13 +32,7 @@ public record Task
     string? Remarks = null,
     int? EngineerId = null
 //EngineerExperience? CopmlexityLevel
-)
-{
-    public Task() : this(0) { } //empty ctor.
-    public Task(int id , string Description , string Allas , bool MilesStone , DateTime CreatedAt, DateTime Start, DateTime ScheduledDate, DateTime ForecastDate)
-    {
-          
-    }
-}
+);
+
 
 

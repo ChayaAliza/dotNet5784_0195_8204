@@ -1,5 +1,4 @@
-﻿
-namespace DalApi;
+﻿namespace DalApi;
 using DO;
 
  public interface IDependency
@@ -8,6 +7,5 @@ using DO;
     Dependency? Read(int id);
     List<Dependency> ReadAll();
     void Update(Dependency de1);
-    void Delete(int id);
 }
 
