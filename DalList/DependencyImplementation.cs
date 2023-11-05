@@ -15,7 +15,13 @@ public class DependencyImplementation : IDependency
 
     public Dependency? Read(int id)
     {
-        throw new NotImplementedException();
+        
+        for (int i = 0; i < DataSource.Dependencys.Count; i++)
+        {
+            if (DataSource.Dependencys[i].Id == id) { return DataSource.Dependencys[i]; }   
+            
+        }
+        return null;
     }
 
     public List<Dependency> ReadAll()
@@ -25,6 +31,15 @@ public class DependencyImplementation : IDependency
 
     public void Update(Dependency de1)
     {
-        throw new NotImplementedException();
+        if (Read(de1.Id) is null)
+        {
+            throw new Exception("an item with this id isnt exist");
+        }
+        DataSource.Dependencys.Remove(de1);
+
+        DataSource.Dependencys.Add(de1);
+
+
+       
     }
 }

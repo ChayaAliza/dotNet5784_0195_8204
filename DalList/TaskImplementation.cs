@@ -13,14 +13,15 @@ public class TaskImplementation : Itask
         return id;
     }
 
-    public void Delete(int id)
-    {
-        throw new NotImplementedException();
-    }
 
     public Task? Read(int id)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < DataSource.Tasks.Count; i++)
+        {
+            if (DataSource.Tasks[i].Id == id) { return DataSource.Tasks[i]; }
+        }
+      
+         return null;
     }
 
     public List<Task> ReadAll()
@@ -30,6 +31,26 @@ public class TaskImplementation : Itask
 
     public void Update(Task item)
     {
-        throw new NotImplementedException();
+        if(Read(item.Id)is null)
+        {
+            throw new Exception("an item with this id isnt exist");
+        }
+        DataSource.Tasks.Remove(item);
+            
+        DataSource.Tasks.Add(item);
+    }
+    public void Delete(int id)
+    {
+        if(DataSource.Dependencys.Find(x => x.DependentTask == id)is not null)
+        {
+            throw new Exception($"Task with Id={id} cannot be deleted");
+        }
+       
+        if(Read(id)is null) {
+            throw new Exception($"Task with Id={id} isnt exist");
+        } 
+        DataSource.Tasks.Remove(Read(id));
+            
+
     }
 }
