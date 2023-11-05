@@ -45,12 +45,12 @@ public class EngineerImplementation : IEngineer
     public void Update(Engineer eng)
     {
 
-        if (Read(Engineer.Id) is null)
+        if (Read(eng.Id) is null)
         {
             throw new Exception("an item with this id isnt exist");
         }
-        DataSource.Tasks.Remove(eng);
+        DataSource.Engineers.Remove(eng);
 
-        DataSource.Tasks.Add(eng);
+        DataSource.Engineers.Add(eng);
     }
 }
