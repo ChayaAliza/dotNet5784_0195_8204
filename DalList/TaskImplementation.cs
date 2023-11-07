@@ -41,16 +41,14 @@ public class TaskImplementation : Itask
     }
     public void Delete(int id)
     {
-        if(DataSource.Dependencys.Find(x => x.DependentTask == id)is not null)
-        {
+        if (DataSource.Dependencys.Find(x => x.DependentTask == id) is not null)  {
             throw new Exception($"Task with Id={id} cannot be deleted");
         }
-       
-        if(Read(id)is null) {
-            throw new Exception($"Task with Id={id} isnt exist");
-        } 
-        DataSource.Tasks.Remove(Read(id));
-            
 
+        if (Read(id) is null)  {
+            throw new Exception($"Task with Id={id} isnt exist");
+        }
+        DataSource.Tasks.Remove(Read(id)); ;
+           
     }
 }
