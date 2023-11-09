@@ -3,7 +3,7 @@ using DalApi;
 using DO;
 using System.Collections.Generic;
 
-public class TaskImplementation : Itask
+public class TaskImplementation : ITask
 {
     public int Create(Task Task1)
     {

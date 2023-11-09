@@ -1,7 +1,7 @@
 ﻿namespace DalApi;
 using DO;
 
-public interface Itask
+public interface ITask
 {
     int Create(Task Task);
     Task? Read(int id);

@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 public static class Initialization
 {
     private static IEngineer? s_dalEngineer;
-    private static Itask? s_dalTask;
+    private static ITask? s_dalTask;
     private static IDependency? s_dalDependency;
     private static readonly Random s_rand = new();
 
@@ -72,12 +72,12 @@ public static class Initialization
             string? Deliverables = null;
             string? Remarks = null;
             int? EngineerId = null;
-            Task newTask = new(0, taskd.Description, CopmlexityLevel, taskd.Alias, MilesStone, CreatedAt, Start, ScheduledDate, DeadLine, Complete);
+            Task newTask = new(0, taskd.Description, CopmlexityLevel, taskd.Alias, MilesStone, CreatedAt, Start, ScheduledDate , ForecastDate, DeadLine, Complete , Deliverables , Remarks , EngineerId);
+            s_dalTask!.Create(newTask);
         }
     }
     private static void createDependency()
     {
-        int _id;
         (int DependentTask, int DependsOnTask)[] DependencysDetails =
         {
             (1,1),
@@ -88,12 +88,19 @@ public static class Initialization
         foreach (var Dependencyd in DependencysDetails)
         {
             Dependency De = new(0, Dependencyd.DependentTask, Dependencyd.DependsOnTask);
+            s_dalDependency!.Create(De);
         }
     }
-    public static Do()
+    
+    public static void Do(IDependency? dalDependency, IEngineer? dalEngineer, ITask? dalTask)
     {
-        Itask? dalTask;
-        s_dalTask = dalTask ?? throw new NullReferenceException("Dal cant be null");
-     }
+
+        s_dalDependency = dalDependency ?? throw new NullReferenceException("DAL can not be null!");
+        s_dalEngineer = dalEngineer ?? throw new NullReferenceException("DAL can not be null!");
+        s_dalTask = dalTask ?? throw new NullReferenceException("DAL can not be null!");
+        createEngineer();
+        createTask();
+        createDependency();
+    }
 
 }
