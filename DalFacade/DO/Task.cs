@@ -33,10 +33,7 @@ public record Task
     string? Remarks = null,
     int? EngineerId = null
  
-)
-{
-    Task();
-}
+);
 
 
 
