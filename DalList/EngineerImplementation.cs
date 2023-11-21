@@ -39,7 +39,7 @@ internal class EngineerImplementation : IEngineer
         }
         DataSource.Engineers.Remove(eng);
 
-        DataSource.Engineers.Add(eng);
+        DataSource.Engineers.Add(eng); 
     }
     
      public Engineer? Read(int id) => DataSource.Engineers.FirstOrDefault(item => item.Id == id);
