@@ -3,7 +3,7 @@ using DalApi;
 using DO;
 using System.Collections.Generic;
 
-public class TaskImplementation : ITask
+internal class TaskImplementation : ITask
 {
     public int Create(Task Task1)
     {
@@ -48,7 +48,7 @@ public class TaskImplementation : ITask
         if (Read(id) is null)  {
             throw new Exception($"Task with Id={id} isnt exist");
         }
-        DataSource.Tasks.Remove(Read(id)); ;
+        DataSource.Tasks.Remove(Read(id)!); ;
            
     }
 }

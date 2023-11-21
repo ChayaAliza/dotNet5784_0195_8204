@@ -1,11 +1,8 @@
 ﻿namespace DalApi;
 using DO;
 
- public interface IDependency
+ public interface IDependency:ICrud<Dependency>
 {
-    int Create(Dependency de1);
-    Dependency? Read(int id);
-    List<Dependency> ReadAll();
-    void Update(Dependency de1);
+   
 }
 

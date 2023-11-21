@@ -3,7 +3,7 @@ using DalApi;
 using DO;
 using System.Collections.Generic;
 
-public class DependencyImplementation : IDependency
+internal class DependencyImplementation : IDependency
 {
     public int Create(Dependency de1)
     {
@@ -37,9 +37,11 @@ public class DependencyImplementation : IDependency
         }
         DataSource.Dependencys.Remove(de1);
 
-        DataSource.Dependencys.Add(de1);
+        DataSource.Dependencys.Add(de1);   
+    }
 
-
-       
+    void ICrud<Dependency>.Delete(int id)
+    {
+        throw new NotImplementedException();
     }
 }

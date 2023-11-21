@@ -9,9 +9,10 @@ namespace DalTest;
 
 class Program
 {
-    private static IDependency? s_dalDependency = new DependencyImplementation(); //stage 1
-    private static IEngineer? s_dalEngineer = new EngineerImplementation(); //stage 1
-    private static ITask? s_dalTask = new TaskImplementation(); //stage 1
+    //private static IDependency? s_dalDependency = new DependencyImplementation(); //stage 1
+    //private static IEngineer? s_dalEngineer = new EngineerImplementation(); //stage 1
+    //private static ITask? s_dalTask = new TaskImplementation(); //stage 1
+    static readonly IDal s_dal = new DalList();
     public static void InfoOfEngineer(char x)
     {
         while (x != 0)//exit!
@@ -35,7 +36,7 @@ class Program
 
                     try
                     {
-                        int result = s_dalEngineer!.Create(e);
+                        int result = s_dal.Engineer!.Create(e);
                         Console.WriteLine("the engineer was added");
                         break;
                     }
@@ -50,7 +51,7 @@ class Program
                     int id = int.Parse(Console.ReadLine()!);
                     try
                     {
-                        Console.WriteLine(s_dalEngineer!.Read(id));
+                        Console.WriteLine(s_dal.Engineer!.Read(id));
                     }
                     catch (Exception ex)
                     {
@@ -59,7 +60,7 @@ class Program
                     break;
                 case 'c'://read all
                     Console.WriteLine("all the engineers:");
-                    List<Engineer> listReadAllEngineers = s_dalEngineer!.ReadAll();
+                    List<Engineer> listReadAllEngineers = s_dal.Engineer!.ReadAll();
                     foreach (var item in listReadAllEngineers)
                         Console.WriteLine(item);
                     break;
@@ -68,7 +69,7 @@ class Program
                     int idUpdate = int.Parse(Console.ReadLine()!);//search of the id to update
                     try
                     {
-                        Console.WriteLine(s_dalEngineer!.Read(idUpdate));
+                        Console.WriteLine(s_dal.Engineer!.Read(idUpdate));
                         int _id = idUpdate;
                         Console.WriteLine("enter Engineer's name");
                         string? _name = (Console.ReadLine()!);
@@ -90,7 +91,7 @@ class Program
                     int idDelete = int.Parse(Console.ReadLine()!);
                     try
                     {
-                        s_dalEngineer!.Delete(idDelete);
+                        s_dal.Engineer!.Delete(idDelete);
                     }
                     catch (Exception ex)
                     {
@@ -153,7 +154,7 @@ class Program
             
                 try
                 {
-                    s_dalTask!.Create(t);
+                    s_dal.Task!.Create(t);
                 }
                 catch (Exception ex)
                 {
@@ -165,7 +166,7 @@ class Program
                 int id = int.Parse(Console.ReadLine()!);
                 try
                 {
-                    Console.WriteLine(s_dalTask!.Read(id));
+                    Console.WriteLine(s_dal.Task!.Read(id));
                 }
                 catch (Exception ex)
                 {
@@ -174,7 +175,7 @@ class Program
                 break;
             case 'c'://read all
                 Console.WriteLine("all the tasks with their customers:");
-                List<DO.Task> listReadAllTasks = s_dalTask!.ReadAll()!;
+                List<DO.Task> listReadAllTasks = s_dal.Task!.ReadAll()!;
                 foreach (var item in listReadAllTasks)
                     Console.WriteLine(item);
                 break;
@@ -223,7 +224,7 @@ class Program
                 int idDelete = int.Parse(Console.ReadLine()!);
                 try
                 {
-                    s_dalTask!.Delete(idDelete);
+                    s_dal.Task!.Delete(idDelete);
                 }
                 catch (Exception ex)
                 {
@@ -238,7 +239,7 @@ class Program
 
     static void Main(string[] args)
     {
-        Initialization.Do(s_dalDependency, s_dalEngineer, s_dalTask);
+        Initialization.Do(s_dal);
 
         Console.WriteLine("for Engineer press1");
         Console.WriteLine("for Dependency press 2");

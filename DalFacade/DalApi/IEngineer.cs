@@ -1,12 +1,7 @@
 ﻿namespace DalApi;
 using DO;
 
-public interface IEngineer
+public interface IEngineer:ICrud<Engineer>
 {
-    int Create(Engineer eng);
-    
-   Engineer? Read(int id);
-    List<Engineer> ReadAll();
-    void Update(Engineer eng);
-    void Delete(int id);
+   
 }
