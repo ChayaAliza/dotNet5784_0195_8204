@@ -31,6 +31,7 @@ internal class EngineerImplementation : IEngineer
 
     public void Update(Engineer eng)
     {
+        if(DataSource.Engineers.RemoveAll(i=>i.Id==item.Id)==0)
 
         if (Read(eng.Id) is null)
         {
@@ -41,16 +42,7 @@ internal class EngineerImplementation : IEngineer
         DataSource.Engineers.Add(eng);
     }
     
-     public Engineer? Read(int id)
-    {
-        for (int i = 0; i < DataSource.countEngineers; i++)
-        {
-            if (DataSource.Engineers[i].Id == id)
-                return DataSource.Engineers[i];
-        }
-        return null;
-        //throw new NotImplementedException();
-    }
+     public Engineer? Read(int id) => DataSource.Engineers.FirstOrDefault(item => item.Id == id);
     
     List<Engineer> ICrud<Engineer>.ReadAll()
     {
