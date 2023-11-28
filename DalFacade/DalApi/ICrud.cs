@@ -11,8 +11,9 @@ namespace DalApi
     {
         int Create(T de1);
         T? Read(int id);
-        List<T> ReadAll();
+        IEnumerable<T?> ReadAll(Func<T, bool>? filter = null);
         void Update(T de1);
         void Delete(int id);
+        T? Read(Func<T, bool> filter);
     }
 }

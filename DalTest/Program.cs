@@ -15,7 +15,7 @@ class Program
     static readonly IDal s_dal = new DalList();
     public static void InfoOfEngineer(char x)
     {
-        while (x != 0)//exit!
+        while (x != 0)//exit
         {
             switch (x)
             {
@@ -60,7 +60,7 @@ class Program
                     break;
                 case 'c'://read all
                     Console.WriteLine("all the engineers:");
-                    List<Engineer> listReadAllEngineers = s_dal.Engineer!.ReadAll();
+                    IEnumerable<DO.Engineer> listReadAllEngineers = s_dal.Engineer!.ReadAll()!;
                     foreach (var item in listReadAllEngineers)
                         Console.WriteLine(item);
                     break;
@@ -103,13 +103,7 @@ class Program
             }
             break;
         }
-        //___________________________________________________________________________________________________
-        //___________________________________________________________________________________________________
-        //___________________________________________________________________________________________________
-        //___________________________________________________________________________________________________
-        //___________________________________________________________________________________________________
-        //___________________________________________________________________________________________________
-        //___________________________________________________________________________________________________
+        
         
     }
 
@@ -120,7 +114,7 @@ class Program
         {
 
             case 'a'://add
-                //Console.WriteLine("enter task's id");//razzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz??????????????????????????????????????????????|
+                //Console.WriteLine("enter task's id");
                 //int _id = int.Parse(Console.ReadLine());
                 Console.WriteLine("enter task's description");
                 string _description = (Console.ReadLine()!);
@@ -175,11 +169,11 @@ class Program
                 break;
             case 'c'://read all
                 Console.WriteLine("all the tasks with their customers:");
-                List<DO.Task> listReadAllTasks = s_dal.Task!.ReadAll()!;
+                IEnumerable<DO.Task> listReadAllTasks = s_dal.Task!.ReadAll()!;
                 foreach (var item in listReadAllTasks)
                     Console.WriteLine(item);
                 break;
-            case 'd'://update!!
+            case 'd'://update
                 Console.WriteLine("enter id of task to update");
                 int idUpdate = int.Parse(Console.ReadLine()!);//search of the id to update
                 try
@@ -252,7 +246,7 @@ class Program
             switch (select)
             {
                 case 1:
-                    Console.WriteLine("for exit press 0");//!!!!!!
+                    Console.WriteLine("for exit press 0");
                     Console.WriteLine("for add a Engineer press a");
                     Console.WriteLine("for read a Engineer press b");
                     Console.WriteLine("for read all Engineers press c");
@@ -262,7 +256,7 @@ class Program
                     InfoOfEngineer(x);//doing this function 
                     break;
                 case 2:
-                    Console.WriteLine("for exit press 0");//!!!!!!
+                    Console.WriteLine("for exit press 0");
                     Console.WriteLine("for add a Task press a");
                     Console.WriteLine("for read a Task press b");
                     Console.WriteLine("for read all Tasks press c");

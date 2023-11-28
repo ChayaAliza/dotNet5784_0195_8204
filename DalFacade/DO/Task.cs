@@ -31,8 +31,8 @@ public record Task
     DateTime? Complete = null,
     string? Deliverables = null,
     string? Remarks = null,
-    int? EngineerId = null
- 
+    int? EngineerId = null,
+    bool active = false
 );
 
 
