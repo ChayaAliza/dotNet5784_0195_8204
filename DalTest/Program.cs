@@ -13,6 +13,7 @@ class Program
     //private static IEngineer? s_dalEngineer = new EngineerImplementation(); //stage 1
     //private static ITask? s_dalTask = new TaskImplementation(); //stage 1
     static readonly IDal s_dal = new DalList();
+
     public static void InfoOfEngineer(char x)
     {
         while (x != 0)//exit
@@ -32,11 +33,11 @@ class Program
                     EngineerExperience? Level = (EngineerExperience)int.Parse(Console.ReadLine()!);
                     Console.WriteLine("enter Engineer's Cost");
                     double? Cost = double.Parse(Console.ReadLine()!);
-                    Engineer e = new Engineer(Id, Name, Email, Level, Cost);
+                    DO.Engineer e = new DO.Engineer(Id, Name, Email, Level, Cost);
 
                     try
                     {
-                        int result = s_dal.Engineer!.Create(e);
+                        s_dal.Engineer!.Create(e);
                         Console.WriteLine("the engineer was added");
                         break;
                     }
@@ -80,6 +81,7 @@ class Program
                         Console.WriteLine("enter Engineer's Cost");
                         double? _cost = double.Parse(Console.ReadLine()!);
                         Engineer eUpdate = new Engineer(_id, _name, _email, _level, _cost);
+                        s_dal.Engineer.Update(eUpdate);
                     }
                     catch (Exception ex)
                     {
@@ -106,7 +108,6 @@ class Program
         
         
     }
-
 
     public static void InfoOfTask(char x)
     {
@@ -145,7 +146,6 @@ class Program
                 Console.WriteLine("enter task's level(0-for expert,1-for Junior,2-for Rookie)");
                 EngineerExperience? _complexityLevel = (EngineerExperience)int.Parse(Console.ReadLine()!);
                 DO.Task t = new DO.Task(123, _description, _complexityLevel, _alias, _milestone, _createdAt, _start, _scheduledDate, _ForecastDate, _deadline, _complete, _deliverables, _remarks, _ideng);
-            
                 try
                 {
                     s_dal.Task!.Create(t);
@@ -206,7 +206,8 @@ class Program
                     int Uideng = int.Parse(Console.ReadLine()!);
                     Console.WriteLine("enter task's level(0-for expert,1-for Junior,2-for Rookie)");
                     EngineerExperience? UcomplexityLevel = (EngineerExperience)int.Parse(Console.ReadLine()!);
-                    DO.Task Ut = new DO.Task(123, Udescription, UcomplexityLevel, Ualias, Umilestone, UcreatedAt, Ustart, UscheduledDate, UForecastDate, Udeadline, Ucomplete, Udeliverables, Uremarks, Uideng);
+                    DO.Task ts = new DO.Task(idUpdate, Udescription, UcomplexityLevel, Ualias, Umilestone, UcreatedAt, Ustart, UscheduledDate, UForecastDate, Udeadline, Ucomplete, Udeliverables, Uremarks, Uideng);
+                    s_dal.Task.Update(ts);
                 }
                 catch (Exception ex)
                 {
@@ -229,15 +230,97 @@ class Program
                 break;
         }
     }
+    public static void InfoOfDependency(char x)
+    {
+        while (x != 0)//exit
+        {
+            switch (x)
+            {
+                case 'a'://add
+                    Console.WriteLine("enter Dependency's id to add");
+                    int Id = int.Parse(Console.ReadLine()!);
+                    Console.WriteLine("enter Dependency's DependentTask");
+                    int? NDependentTask = int.Parse(Console.ReadLine()!);
+                    Console.WriteLine("enter Dependency's DependsOnTask");
+                    int? DependsOnTask = int.Parse(Console.ReadLine()!);
+                    DO.Dependency d = new DO.Dependency(Id, NDependentTask, DependsOnTask);
+                    try
+                    {
+                        s_dal.Dependency!.Create(d);
+                        Console.WriteLine("the dependency was added");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    break;
 
+                case 'b'://read by id
+                    Console.WriteLine("enter dependency's id to read");
+                    int id = int.Parse(Console.ReadLine()!);
+                    try
+                    {
+                        Console.WriteLine(s_dal.Dependency!.Read(id));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    break;
+                case 'c'://read all
+                    Console.WriteLine("all the dependencies:");
+                    IEnumerable<DO.Dependency> listReadAllDependencies = s_dal.Dependency!.ReadAll()!;
+                    foreach (var item in listReadAllDependencies)
+                        Console.WriteLine(item);
+                    break;
+                case 'd'://update
+                    Console.WriteLine("enter id of dependency to update");
+                    int idUpdate = int.Parse(Console.ReadLine()!);//search of the id to update
+                    try
+                    {
+                        Console.WriteLine(s_dal.Dependency!.Read(idUpdate));
+                        int _id = idUpdate;
+                        Console.WriteLine("enter Dependency's DependentTask");
+                        int? NDependentT = int.Parse(Console.ReadLine()!);
+                        Console.WriteLine("enter Dependency's DependsOnTask");
+                        int? DependsOnT = int.Parse(Console.ReadLine()!);
+                        DO.Dependency de = new DO.Dependency(_id, NDependentT, DependsOnT);
+                        s_dal.Dependency.Update(de);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    break;
+                case 'e'://delete a product
+                    Console.WriteLine("enter id of Dependency to delete");
+                    int idDelete = int.Parse(Console.ReadLine()!);
+                    try
+                    {
+                        s_dal.Dependency!.Delete(idDelete);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+
+
+    }
 
     static void Main(string[] args)
     {
         Initialization.Do(s_dal);
 
         Console.WriteLine("for Engineer press1");
-        Console.WriteLine("for Dependency press 2");
-        Console.WriteLine("for Task press 3");
+        Console.WriteLine("for Task press 2");
+        Console.WriteLine("for Dependency press 3");
         Console.WriteLine("for exit press 0");
         int select = int.Parse(Console.ReadLine()!);
         char x;
@@ -266,15 +349,14 @@ class Program
                     InfoOfTask(x); //doing this function 
                     break;
                 case 3:
-                    Console.WriteLine("for add an item in order press a");
-                    Console.WriteLine("for read item in order press b");
-                    Console.WriteLine("for read all items in orders press c");
-                    Console.WriteLine("for update an item in order press d");
-                    Console.WriteLine("for delete an item in order press e");
-                    Console.WriteLine("for read an item in order by id of order and product press f");
-                    Console.WriteLine("for read an items in order press g");
+                    Console.WriteLine("for exit press 0");
+                    Console.WriteLine("for add a Dependency press a");
+                    Console.WriteLine("for read a Dependency press b");
+                    Console.WriteLine("for read all Dependency press c");
+                    Console.WriteLine("for update a Dependency press d");
+                    Console.WriteLine("for delete a Dependency press e");
                     x = char.Parse((Console.ReadLine()!));
-                    InfoOfEngineer(x);//doing this function 
+                    InfoOfDependency(x);//doing this function 
                     break;
                 default:
                     break;

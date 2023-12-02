@@ -7,10 +7,10 @@ using System.Collections.Generic;
 internal class TaskImplementation : ITask
 {
     //A method that generates a new task.
-    public int Create(Task Task1)
+    public int Create(Task item)
     {
         int id = DataSource.Config.NextTaskId;
-        Task copy = Task1 with { Id = id };
+        Task copy = item with { Id = id };
         DataSource.Tasks.Add(copy);
         return id;
     }
