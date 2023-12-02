@@ -322,7 +322,7 @@ class Program
         Console.WriteLine("for Task press 2");
         Console.WriteLine("for Dependency press 3");
         Console.WriteLine("for exit press 0");
-        int select = int.Parse(Console.ReadLine()!);
+        int select = char.Parse(Console.ReadLine()!);
         char x;
         while (select != 0)
         {
