@@ -20,5 +20,20 @@
 		<DependentTask></DependentTask>
 		<DependsOnTask></DependsOnTask>
 	</Dependency>
+	<Dependency>
+		<Id></Id>
+		<DependentTask></DependentTask>
+		<DependsOnTask></DependsOnTask>
+	</Dependency>
+	<Dependency>
+		<Id></Id>
+		<DependentTask></DependentTask>
+		<DependsOnTask></DependsOnTask>
+	</Dependency>
+	<Dependency>
+		<Id></Id>
+		<DependentTask></DependentTask>
+		<DependsOnTask></DependsOnTask>
+	</Dependency>
 </ArrayOfDependency>
 

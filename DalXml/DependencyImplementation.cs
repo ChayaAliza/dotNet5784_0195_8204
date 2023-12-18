@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 internal class DependencyImplementation : IDependency
 {
-    private const string filePath = "dependencys.xml"; // XML file path
+    private const string filePath = "dependencys.xml"; 
 
     public int Create(Dependency item)
     {
@@ -29,7 +29,7 @@ internal class DependencyImplementation : IDependency
         XElement dependenciesElement = XMLTools.LoadListFromXMLElement(filePath);
 
         var dependencyToDelete = dependenciesElement.Elements("Dependency")
-            .FirstOrDefault(d => (int)d.Element("Id") == id);
+            .FirstOrDefault(d => (int?)d.Element("Id") == id);
 
         if (dependencyToDelete != null)
         {
@@ -43,12 +43,12 @@ internal class DependencyImplementation : IDependency
         XElement rootElement = XMLTools.LoadListFromXMLElement(filePath);
 
         var query = from depElement in rootElement.Elements("Dependency")
-                    where (int)depElement.Element("Id") == id
+                    where (int?)depElement.Element("Id") == id
                     select new Dependency
                     {
-                        Id = (int)depElement.Element("Id"),
-                        DependentTask = (int)depElement.Element("DependentTask"),
-                        DependsOnTask = (int)depElement.Element("DependsOnTask")
+                        Id = (int)depElement.Element("Id")!,
+                        DependentTask = (int?)depElement.Element("DependentTask"),
+                        DependsOnTask = (int?)depElement.Element("DependsOnTask")
                     };
 
         return query.SingleOrDefault();
@@ -61,9 +61,9 @@ internal class DependencyImplementation : IDependency
         var query = from depElement in rootElement.Elements("Dependency")
                     let dependency = new Dependency
                     {
-                        Id = (int)depElement.Element("Id"),
-                        DependentTask = (int)depElement.Element("DependentTask"),
-                        DependsOnTask = (int)depElement.Element("DependsOnTask")
+                        Id = (int)depElement.Element("Id")!,
+                        DependentTask = (int?)depElement.Element("DependentTask"),
+                        DependsOnTask = (int?)depElement.Element("DependsOnTask")
                     }
                     where filter(dependency)
                     select dependency;
@@ -78,9 +78,9 @@ internal class DependencyImplementation : IDependency
         var query = from depElement in rootElement.Elements("Dependency")
                     let dependency = new Dependency
                     {
-                        Id = (int)depElement.Element("Id"),
-                        DependentTask = (int)depElement.Element("DependentTask"),
-                        DependsOnTask = (int)depElement.Element("DependsOnTask")
+                        Id = (int)depElement.Element("Id")!,
+                        DependentTask = (int?)depElement.Element("DependentTask"),
+                        DependsOnTask = (int?)depElement.Element("DependsOnTask")
                     }
                     where filter == null || filter(dependency)
                     select dependency;
@@ -93,13 +93,13 @@ internal class DependencyImplementation : IDependency
         XElement rootElement = XMLTools.LoadListFromXMLElement(filePath);
 
         XElement depElement = (from d in rootElement.Elements("Dependency")
-                               where (int)d.Element("Id") == de1.Id
+                               where (int?)d.Element("Id") == de1.Id
                                select d).SingleOrDefault()!;
 
         if (depElement != null)
         {
-            depElement.Element("DependentTask").SetValue(de1.DependentTask);
-            depElement.Element("DependsOnTask").SetValue(de1.DependsOnTask);
+            depElement.Element("DependentTask")?.SetValue(de1.DependentTask!);
+            depElement.Element("DependsOnTask")?.SetValue(de1.DependsOnTask!);
         }
 
         XMLTools.SaveListToXMLElement(rootElement, filePath);

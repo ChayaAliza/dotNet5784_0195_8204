@@ -3,10 +3,6 @@ using DalApi;
 using DO;
 
 
-using System.Data.SqlTypes;
-using System.Numerics;
-using System.Reflection.Emit;
-using System.Threading.Tasks;
 
 namespace DalTest;
 
@@ -16,7 +12,7 @@ class Program
     //private static IEngineer? s_dalEngineer = new EngineerImplementation(); //stage 1
     //private static ITask? s_dalTask = new TaskImplementation(); //stage 1
     //static readonly IDal s_dal = new DalList();
-    static readonly IDal s_dal = new DalXml(); //stage 3
+    static readonly IDal s_dal = new Dal.DalXml(); //stage 3
 
 
     public static void InfoOfEngineer(char x)
