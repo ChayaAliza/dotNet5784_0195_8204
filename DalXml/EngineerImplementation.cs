@@ -35,7 +35,7 @@ internal class EngineerImplementation : IEngineer
     public Engineer? Read(Func<Engineer, bool> filter)
     {
         return XMLTools.LoadListFromXMLSerializer<Engineer>(filePath).FirstOrDefault<Engineer>(filter);
-    }
+    } 
 
 
     public IEnumerable<Engineer?> ReadAll(Func<Engineer, bool>? filter = null)
