@@ -21,25 +21,21 @@ internal class TaskImplementation : ITask
         throw new DalDeletionImpossible($"Task is indelible entity");
     }
 
-    public DO.Task? Read(int id)
-    {
-        throw new NotImplementedException();
-    }
-
     public DO.Task? Read(Func<DO.Task, bool> filter)
     {
         return XMLTools.LoadListFromXMLSerializer<DO.Task>(filePath).FirstOrDefault(filter!);
     }
 
+    public DO.Task? Read(int id)
+    {
+        throw new NotImplementedException();
+    }
     public IEnumerable<DO.Task?> ReadAll(Func<DO.Task, bool>? filter = null)
     {
         return filter == null ? XMLTools.LoadListFromXMLSerializer<DO.Task>(filePath).Select(item => item) : XMLTools.LoadListFromXMLSerializer<DO.Task>(filePath).Where(filter!);
     }
-
-
-
-public void Update(DO.Task de1)
-{
+    public void Update(DO.Task de1)
+    {
         var existingTask = Read(t => t.Id == de1.Id);
         if (existingTask is null)
             throw new DalDoesNotExistException($"Task with ID={de1.Id} does not exist");
@@ -48,5 +44,8 @@ public void Update(DO.Task de1)
         tasks.Remove(existingTask);
         tasks.Add(de1);
         XMLTools.SaveListToXMLSerializer<DO.Task>(tasks, filePath);
-}
+    }
+
+
+
 }

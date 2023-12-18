@@ -33,7 +33,11 @@ public record Task
     string? Remarks = null,
     int? EngineerId = null,
     bool active = false
-);
+)
+{
+    public Task() : this(0, "",0,"",false,null,null,null,null,null,null,"","",0,false) { }
+}
+
 
 
 

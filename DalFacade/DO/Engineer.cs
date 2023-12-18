@@ -17,5 +17,9 @@ public record Engineer
       bool active = false
       
     
-);
+)
+{
+    public Engineer() : this(0,"","",0,0,false) { }
+}
+
 
