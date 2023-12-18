@@ -1,88 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTask>
 	<task>
-		<Id></Id>
-		<Description></Description>
-		<CopmlexityLevel></CopmlexityLevel>
-		<Allas></Allas>
-		<MilesStone></MilesStone>
-		<CreatedAt></CreatedAt>
-		<Start></Start>
-		<ScheduledDate></ScheduledDate>
-		<ForecastDate></ForecastDate>
-		<DeadLine></DeadLine>
-		<Complete></Complete>
-		<Deliverables></Deliverables>
-		<Remarks></Remarks>
-		<EngineerId></EngineerId>
-		<active></active>
+			<Description>Research and Procurement of Books</Description>
+			<ComplexityLevel>2</ComplexityLevel>
+			<Allas>Procurement, Research</Allas>
+			<MilesStone>true</MilesStone>
+			<CreatedAt>2023-03-10</CreatedAt>
+			<Start>2023-04-01</Start>
+			<ScheduledDate>2023-09-30</ScheduledDate>
+			<ForecastDate>2023-09-15</ForecastDate>
+			<DeadLine>2023-10-15</DeadLine>
+			<Complete>40%</Complete>
+			<Deliverables>Research on book selection, Order placement</Deliverables>
+			<Remarks>Delays in book availability from certain publishers</Remarks>
+			<EngineerId>214490195</EngineerId>
+			<active>true</active>
 	</task>
 	<task>
-		<Id></Id>
-		<Description></Description>
-		<CopmlexityLevel></CopmlexityLevel>
-		<Allas></Allas>
-		<MilesStone></MilesStone>
-		<CreatedAt></CreatedAt>
-		<Start></Start>
-		<ScheduledDate></ScheduledDate>
-		<ForecastDate></ForecastDate>
-		<DeadLine></DeadLine>
-		<Complete></Complete>
-		<Deliverables></Deliverables>
-		<Remarks></Remarks>
-		<EngineerId></EngineerId>
-		<active></active>
+		<Description>Architectural Design and Approval</Description>
+		<ComplexityLevel>1</ComplexityLevel>
+		<Allas>Design, Approval</Allas>
+		<MilesStone>true</MilesStone>
+		<CreatedAt>2023-01-20</CreatedAt>
+		<Start>2023-02-15</Start>
+		<ScheduledDate>2023-08-30</ScheduledDate>
+		<ForecastDate>2023-08-01</ForecastDate>
+		<DeadLine>2023-09-15</DeadLine>
+		<Complete>70%</Complete>
+		<Deliverables>Architectural drawings, Approval from local authorities</Deliverables>
+		<Remarks>Revision required for certain design aspects</Remarks>
+		<EngineerId>214338204</EngineerId>
+		<active>true</active>
 	</task>
 	<task>
-		<Id></Id>
-		<Description></Description>
-		<CopmlexityLevel></CopmlexityLevel>
-		<Allas></Allas>
-		<MilesStone></MilesStone>
-		<CreatedAt></CreatedAt>
-		<Start></Start>
-		<ScheduledDate></ScheduledDate>
-		<ForecastDate></ForecastDate>
-		<DeadLine></DeadLine>
-		<Complete></Complete>
-		<Deliverables></Deliverables>
-		<Remarks></Remarks>
-		<EngineerId></EngineerId>
-		<active></active>
+		<Description>Site Preparation and Clearing</Description>
+		<ComplexityLevel>1</ComplexityLevel>
+		<Allas>Construction, Site Management</Allas>
+		<MilesStone>false</MilesStone>
+		<CreatedAt>2023-01-05</CreatedAt>
+		<Start>2023-01-25</Start>
+		<ScheduledDate>2023-04-30</ScheduledDate>
+		<ForecastDate>2023-04-20</ForecastDate>
+		<DeadLine>2023-05-20</DeadLine>
+		<Complete>80%</Complete>
+		<Deliverables>Cleared site, Infrastructure setup</Deliverables>
+		<Remarks>Unexpected soil quality required additional groundwork</Remarks>
+		<EngineerId>033939232</EngineerId>
+		<active>true</active>
 	</task>
 	<task>
-		<Id></Id>
-		<Description></Description>
-		<CopmlexityLevel></CopmlexityLevel>
-		<Allas></Allas>
-		<MilesStone></MilesStone>
-		<CreatedAt></CreatedAt>
-		<Start></Start>
-		<ScheduledDate></ScheduledDate>
-		<ForecastDate></ForecastDate>
-		<DeadLine></DeadLine>
-		<Complete></Complete>
-		<Deliverables></Deliverables>
-		<Remarks></Remarks>
-		<EngineerId></EngineerId>
-		<active></active>
+		<Description>Interior Design and Furnishing</Description>
+		<ComplexityLevel>2</ComplexityLevel>
+		<Allas>Design, Procurement</Allas>
+		<MilesStone>false</MilesStone>
+		<CreatedAt>2023-04-15</CreatedAt>
+		<Start>2023-05-10</Start>
+		<ScheduledDate>2023-11-30</ScheduledDate>
+		<ForecastDate>2023-11-01</ForecastDate>
+		<DeadLine>2023-12-01</DeadLine>
+		<Complete>20%</Complete>
+		<Deliverables>Interior design plans, Furniture procurement</Deliverables>
+		<Remarks>Long lead time for custom furniture pieces</Remarks>
+		<EngineerId>039282298</EngineerId>
+		<active>true</active>
 	</task>
 	<task>
-		<Id></Id>
-		<Description></Description>
-		<CopmlexityLevel></CopmlexityLevel>
-		<Allas></Allas>
-		<MilesStone></MilesStone>
-		<CreatedAt></CreatedAt>
-		<Start></Start>
-		<ScheduledDate></ScheduledDate>
-		<ForecastDate></ForecastDate>
-		<DeadLine></DeadLine>
-		<Complete></Complete>
-		<Deliverables></Deliverables>
-		<Remarks></Remarks>
-		<EngineerId></EngineerId>
-		<active></active>
+		<Description>IT Infrastructure Setup</Description>
+		<ComplexityLevel>3</ComplexityLevel>
+		<Allas>Technology, Setup</Allas>
+		<MilesStone>true</MilesStone>
+		<CreatedAt>2023-05-20</CreatedAt>
+		<Start>2023-06-15</Start>
+		<ScheduledDate>2024-03-31</ScheduledDate>
+		<ForecastDate>2024-03-01</ForecastDate>
+		<DeadLine>2024-04-01</DeadLine>
+		<Complete>10%</Complete>
+		<Deliverables>Network infrastructure, Systems installation</Deliverables>
+		<Remarks>Complexity in integrating different systems</Remarks>
+		<EngineerId>216678123</EngineerId>
+		<active>true</active>
 	</task>
 </ArrayOfTask>
