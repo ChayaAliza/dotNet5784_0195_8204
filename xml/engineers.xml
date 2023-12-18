@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfEngineer>
 	<Engineer>
-		<Id></Id>
-		<Name></Name>
-		<Email></Email>
-		<Level></Level>
-		<Cost></Cost>
-		<active></active>
+		<Id>214490195</Id>
+		<Name>Alex Johnson</Name>
+		<Email>alex.j195@gmail.com</Email>
+		<Level>3</Level>
+		<Cost>18,500</Cost>
+		<active>true</active>
+	</Engineer>
+	<Engineer>
+		<Id>214338204</Id>
+		<Name>Olivia Taylor</Name>
+		<Email>1otaylor@gmail.com</Email>
+		<Level>3</Level>
+		<Cost>22,800</Cost>
+		<active>true</active>
+	</Engineer>
+	<Engineer>
+		<Id>033939232</Id>
+		<Name>Emily Davis</Name>
+		<Email>ED0527661610@gmail.com</Email>
+		<Level>2</Level>
+		<Cost>14,200</Cost>
+		<active>false</active>
+	</Engineer>
+	<Engineer>
+		<Id>039282298</Id>
+		<Name>Ryan Smith</Name>
+		<Email>ryanS@gmail.com</Email>
+		<Level>1</Level>
+		<Cost>9,000</Cost>
+		<active>true</active>
+	</Engineer>
+	<Engineer>
+		<Id>215556754</Id>
+		<Name>Ethan Brown</Name>
+		<Email>EB6754@gmail.com</Email>
+		<Level>3</Level>
+		<Cost>21,600</Cost>
+		<active>2</active>
+	</Engineer>
+	<Engineer>
+		<Id>216678123</Id>
+		<Name>Sophia Miller</Name>
+		<Email>123Sophia@gmail.com</Email>
+		<Level>1</Level>
+		<Cost>12,400</Cost>
+		<active>false</active>
+	</Engineer>
+	<Engineer>
+		<Id>037673829</Id>
+		<Name>Liam Wilson</Name>
+		<Email>LiamW0376@gmail.com</Email>
+		<Level>1</Level>
+		<Cost>17,400</Cost>
+		<active>false</active>
+	</Engineer>
+	<Engineer>
+		<Id>329736466</Id>
+		<Name>Ava Anderson</Name>
+		<Email>A6466@gmail.com</Email>
+		<Level>2</Level>
+		<Cost>16,700</Cost>
+		<active>true</active>
 	</Engineer>
 </ArrayOfEngineer>
 
