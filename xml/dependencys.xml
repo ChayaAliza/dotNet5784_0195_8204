@@ -1,38 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfDependency>
-	<Dependency>
-		<DependentTask></DependentTask>
-		<DependsOnTask></DependsOnTask>
-	</Dependency>
-	<Dependency>
-		<Id></Id>
-		<DependentTask></DependentTask>
-		<DependsOnTask></DependsOnTask>
-	</Dependency>
-	<Dependency>
-		<Id></Id>
-		<DependentTask></DependentTask>
-		<DependsOnTask></DependsOnTask>
-	</Dependency>
-	<Dependency>
-		<Id></Id>
-		<DependentTask></DependentTask>
-		<DependsOnTask></DependsOnTask>
-	</Dependency>
-	<Dependency>
-		<Id></Id>
-		<DependentTask></DependentTask>
-		<DependsOnTask></DependsOnTask>
-	</Dependency>
-	<Dependency>
-		<Id></Id>
-		<DependentTask></DependentTask>
-		<DependsOnTask></DependsOnTask>
-	</Dependency>
-	<Dependency>
-		<Id></Id>
-		<DependentTask></DependentTask>
-		<DependsOnTask></DependsOnTask>
-	</Dependency>
+  <Dependency>
+    <Id>1008</Id>
+    <DependentTask>1</DependentTask>
+    <DependsOnTask>1</DependsOnTask>
+  </Dependency>
 </ArrayOfDependency>
-

@@ -5,7 +5,7 @@ namespace Dal;
 
 internal class TaskImplementation : ITask
 {
-    const string filePath = @"tasks";
+    const string filePath = "tasks";
     public int Create(DO.Task de1)
     {
         int id = Config.NextTaskId;

@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 internal class DependencyImplementation : IDependency
 {
-    private const string filePath = "dependencys.xml"; 
+    private const string filePath = "dependencys"; 
 
     public int Create(Dependency item)
     {

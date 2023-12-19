@@ -5,7 +5,7 @@
 		<Name>Alex Johnson</Name>
 		<Email>alex.j195@gmail.com</Email>
 		<Level>3</Level>
-		<Cost>18,500</Cost>
+		<Cost>18,500.00</Cost>
 		<active>true</active>
 	</Engineer>
 	<Engineer>
@@ -13,7 +13,7 @@
 		<Name>Olivia Taylor</Name>
 		<Email>1otaylor@gmail.com</Email>
 		<Level>3</Level>
-		<Cost>22,800</Cost>
+		<Cost>22,800.00</Cost>
 		<active>true</active>
 	</Engineer>
 	<Engineer>
@@ -21,7 +21,7 @@
 		<Name>Emily Davis</Name>
 		<Email>ED0527661610@gmail.com</Email>
 		<Level>2</Level>
-		<Cost>14,200</Cost>
+		<Cost>14,200.00</Cost>
 		<active>false</active>
 	</Engineer>
 	<Engineer>
@@ -29,7 +29,7 @@
 		<Name>Ryan Smith</Name>
 		<Email>ryanS@gmail.com</Email>
 		<Level>1</Level>
-		<Cost>9,000</Cost>
+		<Cost>9,000.00</Cost>
 		<active>true</active>
 	</Engineer>
 	<Engineer>
@@ -37,7 +37,7 @@
 		<Name>Ethan Brown</Name>
 		<Email>EB6754@gmail.com</Email>
 		<Level>3</Level>
-		<Cost>21,600</Cost>
+		<Cost>21,600.00</Cost>
 		<active>2</active>
 	</Engineer>
 	<Engineer>
@@ -45,7 +45,7 @@
 		<Name>Sophia Miller</Name>
 		<Email>123Sophia@gmail.com</Email>
 		<Level>1</Level>
-		<Cost>12,400</Cost>
+		<Cost>12,400.00</Cost>
 		<active>false</active>
 	</Engineer>
 	<Engineer>
@@ -53,7 +53,7 @@
 		<Name>Liam Wilson</Name>
 		<Email>LiamW0376@gmail.com</Email>
 		<Level>1</Level>
-		<Cost>17,400</Cost>
+		<Cost>17,400.00</Cost>
 		<active>false</active>
 	</Engineer>
 	<Engineer>
@@ -61,7 +61,7 @@
 		<Name>Ava Anderson</Name>
 		<Email>A6466@gmail.com</Email>
 		<Level>2</Level>
-		<Cost>16,700</Cost>
+		<Cost>16,700.00</Cost>
 		<active>true</active>
 	</Engineer>
 </ArrayOfEngineer>
