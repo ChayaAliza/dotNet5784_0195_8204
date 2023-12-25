@@ -52,5 +52,7 @@ internal class TaskImplementation : ITask
         return from item in DataSource.Tasks
                select item;
     }
+    public void Reset()
+    { DataSource.Tasks.Clear(); }
 
 }

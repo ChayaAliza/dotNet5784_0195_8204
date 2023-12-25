@@ -15,5 +15,6 @@ namespace DalApi
         void Update(T de1);
         void Delete(int id);
         T? Read(Func<T, bool> filter);
+        void Reset();
     }
 }

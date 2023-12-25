@@ -32,7 +32,6 @@ class Program
                     Console.WriteLine("enter Engineer's email");
                     string? Email = (Console.ReadLine()!) ;
                     Console.WriteLine("enter Engineer's level(0-for expert,1-for Junior,2-for Rookie)");
-
                     EngineerExperience? Level = (EngineerExperience)int.Parse(Console.ReadLine()!);
                     Console.WriteLine("enter Engineer's Cost");
                     double? Cost = double.Parse(Console.ReadLine()!);
@@ -97,6 +96,17 @@ class Program
                     try
                     {
                         s_dal.Engineer!.Delete(idDelete);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    break;
+                case 'f'://reset
+                    Console.WriteLine("reset");
+                    try
+                    {
+                        s_dal.Engineer!.Reset();
                     }
                     catch (Exception ex)
                     {
@@ -229,6 +239,17 @@ class Program
                     Console.WriteLine(ex);
                 }
                 break;
+            case 'f'://reset
+                Console.WriteLine("reset");
+                try
+                {
+                    s_dal.Task!.Reset();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                break;
             default:
                 break;
         }
@@ -240,13 +261,13 @@ class Program
             switch (x)
             {
                 case 'a'://add
-                    Console.WriteLine("enter Dependency's id to add");
-                    int Id = int.Parse(Console.ReadLine()!);
+                    //Console.WriteLine("enter Dependency's id to add");
+                    //int Id = int.Parse(Console.ReadLine()!);
                     Console.WriteLine("enter Dependency's DependentTask");
                     int? NDependentTask = int.Parse(Console.ReadLine()!);
                     Console.WriteLine("enter Dependency's DependsOnTask");
                     int? DependsOnTask = int.Parse(Console.ReadLine()!);
-                    DO.Dependency d = new DO.Dependency(Id, NDependentTask, DependsOnTask);
+                    DO.Dependency d = new DO.Dependency(1, NDependentTask, DependsOnTask);
                     try
                     {
                         s_dal.Dependency!.Create(d);
@@ -308,6 +329,17 @@ class Program
                         Console.WriteLine(ex);
                     }
                     break;
+                case 'f'://reset
+                    Console.WriteLine("reset");
+                    try
+                    {
+                        s_dal.Dependency!.Reset();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    break;
                 default:
                     break;
             }
@@ -319,16 +351,16 @@ class Program
 
     static void Main(string[] args)
     {
-        //Console.Write("Would you like to create Initial data? (Y/N)"); //stage 3
-        //string? ans = Console.ReadLine() ?? throw new FormatException("Wrong input"); //stage 3
-        //if (ans == "Y") //stage 3
-        //    Initialization.Do(s_dal); //stage 2
+        Console.Write("Would you like to create Initial data? (Y/N)"); //stage 3
+        string? ans = Console.ReadLine() ?? throw new FormatException("Wrong input"); //stage 3
+        if (ans == "Y") //stage 3
+            Initialization.Do(s_dal); //stage 2
 
         Console.WriteLine("for Engineer press1");
         Console.WriteLine("for Task press 2");
         Console.WriteLine("for Dependency press 3");
         Console.WriteLine("for exit press 0");
-        int select = char.Parse(Console.ReadLine()!);
+        int select = int.Parse(Console.ReadLine()!);
         char x;
         while (select != 0)
         {
@@ -341,6 +373,7 @@ class Program
                     Console.WriteLine("for read all Engineers press c");
                     Console.WriteLine("for update a Engineer press d");
                     Console.WriteLine("for delete a Engineer press e");
+                    Console.WriteLine("for reset a Engineer press f");
                     x = char.Parse(Console.ReadLine()!);
                     InfoOfEngineer(x);//doing this function 
                     break;
@@ -351,6 +384,7 @@ class Program
                     Console.WriteLine("for read all Tasks press c");
                     Console.WriteLine("for update a Task press d");
                     Console.WriteLine("for delete a Task press e");
+                    Console.WriteLine("for reset a Task press f");
                     x = char.Parse((Console.ReadLine()!));
                     InfoOfTask(x); //doing this function 
                     break;
@@ -361,6 +395,7 @@ class Program
                     Console.WriteLine("for read all Dependency press c");
                     Console.WriteLine("for update a Dependency press d");
                     Console.WriteLine("for delete a Dependency press e");
+                    Console.WriteLine("for reset a Dependency press f");
                     x = char.Parse((Console.ReadLine()!));
                     InfoOfDependency(x);//doing this function 
                     break;

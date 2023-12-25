@@ -12,14 +12,14 @@ public record Engineer
       int Id,
       string? Name = null,
       string? Email = null,
-      EngineerExperience? Level = null,
-      double? Cost = null,
-      bool active = false
+      EngineerExperience? Level =EngineerExperience.Junior ,
+      double? Cost = 0,
+      bool active = true
       
     
 )
 {
-    public Engineer() : this(0,"","",0,0,false) { }
+    public Engineer() : this(0, null, null, new EngineerExperience(),0,true) { }
 }
 
 

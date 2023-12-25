@@ -104,4 +104,14 @@ internal class DependencyImplementation : IDependency
 
         XMLTools.SaveListToXMLElement(rootElement, filePath);
     }
+
+    public void Reset()
+    {
+        XElement rootElement = XMLTools.LoadListFromXMLElement(filePath);
+        rootElement.Elements().Remove();
+        XMLTools.SaveListToXMLElement(rootElement, filePath);
+        XElement configElement = XMLTools.LoadListFromXMLElement("data-config");
+        configElement.Element("NextDependencyId")?.SetValue(1);
+        XMLTools.SaveListToXMLElement(configElement, "data-config");
+    }
 }

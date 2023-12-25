@@ -1,5 +1,6 @@
 ﻿using DalApi;
 using DO;
+using System.Xml.Linq;
 
 namespace Dal;
 
@@ -28,7 +29,7 @@ internal class TaskImplementation : ITask
 
     public DO.Task? Read(int id)
     {
-        throw new NotImplementedException();
+        return XMLTools.LoadListFromXMLSerializer<DO.Task>("tasks").FirstOrDefault(x => x.Id == id);
     }
     public IEnumerable<DO.Task?> ReadAll(Func<DO.Task, bool>? filter = null)
     {
@@ -45,7 +46,16 @@ internal class TaskImplementation : ITask
         tasks.Add(de1);
         XMLTools.SaveListToXMLSerializer<DO.Task>(tasks, filePath);
     }
-
+    public void Reset()
+    {
+        List<DO.Task> tasks = XMLTools.LoadListFromXMLSerializer<DO.Task>(filePath);
+        tasks.Clear();
+        XMLTools.SaveListToXMLSerializer<DO.Task>(tasks, filePath);
+        XElement configElement = XMLTools.LoadListFromXMLElement("data-config");
+        configElement.Element("NextTaskId")?.SetValue(1);
+        XMLTools.SaveListToXMLElement(configElement, "data-config");
+       
+    }
 
 
 }

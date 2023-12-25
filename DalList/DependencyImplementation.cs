@@ -57,5 +57,8 @@ internal class DependencyImplementation : IDependency
         return from item in DataSource.Dependencys
                select item;
     }
+
+    public void Reset()
+    { DataSource.Dependencys.Clear(); }
     
 }

@@ -54,5 +54,6 @@ internal class EngineerImplementation : IEngineer
         return from item in DataSource.Engineers
                select item;
     }
-
+    public void Reset()
+    { DataSource.Engineers.Clear(); }
 }
