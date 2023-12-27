@@ -11,10 +11,10 @@ class Program
     //private static IDependency? s_dalDependency = new DependencyImplementation(); //stage 1
     //private static IEngineer? s_dalEngineer = new EngineerImplementation(); //stage 1
     //private static ITask? s_dalTask = new TaskImplementation(); //stage 1
-    //static readonly IDal s_dal = new DalList();
-    
+    //static readonly IDal s_dal = new DalList(); //stage 2
+    //static readonly IDal s_dal = new DalXml(); //stage 3
+    static readonly IDal s_dal = Factory.Get; //stage 4
 
-    static readonly IDal s_dal = new Dal.DalXml(); //stage 3
 
 
     public static void InfoOfEngineer(char x)
@@ -354,7 +354,9 @@ class Program
         Console.Write("Would you like to create Initial data? (Y/N)"); //stage 3
         string? ans = Console.ReadLine() ?? throw new FormatException("Wrong input"); //stage 3
         if (ans == "Y") //stage 3
-            Initialization.Do(s_dal); //stage 2
+                        //Initialization.Do(s_dal); //stage 2
+            Initialization.Do(); //stage 4
+
 
         Console.WriteLine("for Engineer press1");
         Console.WriteLine("for Task press 2");
