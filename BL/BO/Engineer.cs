@@ -1,21 +1,18 @@
 ﻿using DO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace BO;
 
-public record Engineer
-(
-     int Id,
-      string? Name = null,
-      string? Email = null,
-      EngineerExperience? Level = EngineerExperience.Junior,
-      double? Cost = 0,
-      bool active = true
-
-)
+public class Engineer
 {
+    public int Id { get; init; }
+    public string? Name { get; set; }
+    public bool IsActive { get; set; }
+    public string? Email { get; set; }
+    public EngineerExperience Level { get; init; }
+    public double Cost { get; set; }
+    public TaskInEngineer? Task { get; set; } = null;
 }
+
+
+

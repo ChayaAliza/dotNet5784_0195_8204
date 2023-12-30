@@ -1,29 +1,22 @@
 ﻿using DO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BO;
 
-public record  Task
-(
-    int Id,
-    string Alias,
-    string Description,
-    DateTime CreatedAtDate,
-    double RequiedEffort,
-    bool Active=true,
-    bool IsMilesStone=false,
-    EngineerExperience Complexty=EngineerExperience.export,
-    DateTime? Start = null,
-    DateTime? ScheduledDate = null,
-    DateTime? DeadLine = null,
-    DateTime? Complete = null,
-     string? Deliverables = null,
-    string? Remarks = null,
-    int? EngineerId = null
-)
+public class Task
 {
+    public int Id { get; init; }
+    public string? Description { get; set; }
+    public string? Alias { get; set; }
+    public bool IsActive { get; set; }
+    public DateTime CreateAt { get; set; }
+    public Status? Status { get; set; } = null;
+    public MilestoneInTask? Milestone { get; set; } = null;
+    public DateTime? Start { get; set; } = null;
+    public DateTime? ForecastDate { get; set; } = null;
+    public DateTime? Deadline { get; set; } = null;
+    public DateTime? Complete { get; set; } = null;
+    public string? Deliverables { get; set; } = null;
+    public string? Remarks { get; set; } = null;
+    public EngineerInTask? Engineer { get; set; } = null;
+    public EngineerExperience? Level { get; set; } = null;
 }

@@ -1,28 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace BO;
 
-namespace BO;
-
-public record MilesStone
-(
-  int  Id,
-  string Description,
-  string Alias,
-  string Status,
-  DateTime CreatedAtDate,
-  DateTime BaselineStartDate,
-  DateTime  StartDate,
-  DateTime ScheduledDate,
-  DateTime ForecastDate,
-  DateTime DeadlineDate,
-  DateTime CompleteDate,
-  double CompletionPercentage,
-  string Remarks
-//List&lt; TaskInList&gt;? Dependencies { get; set; }
-//public override string? ToString() =&gt;$&quot;Milestone(ID:M{ Id})&quot;;
-)
+public class Milestone
 {
+    public int Id { get; init; }
+    public string? Description { get; set; }
+    public string? Alias { get; set; }
+    public DateTime CreateAt { get; set; }
+    public Status? Status { get; set; } = null;
+    public DateTime? ForecastDate { get; set; } = null;
+    public DateTime? Deadline { get; set; } = null;
+    public DateTime? Complete { get; set; } = null;
+    public double? CompletionPercentage { get; set; } = null;
+    public string? Remarks { get; set; } = null;
+    public List<TaskInList> Dependencies { get; set; } = new List<TaskInList>();
 }
+
