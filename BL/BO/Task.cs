@@ -12,6 +12,7 @@ public class Task
     public Status? Status { get; set; } = null;
     public MilestoneInTask? Milestone { get; set; } = null;
     public DateTime? Start { get; set; } = null;
+    public DateTime? ScheduledDate { get; set; } = null; //???
     public DateTime? ForecastDate { get; set; } = null;
     public DateTime? Deadline { get; set; } = null;
     public DateTime? Complete { get; set; } = null;

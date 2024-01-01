@@ -20,7 +20,7 @@ public record Task
 (
     int Id,
     string? Description = null,
-    EngineerExperience? CopmlexityLevel = null,
+    EngineerExperience? CopmlexityLevel = EngineerExperience.Junior,
     string? Allas = null,
     bool MilesStone = false,
     DateTime? CreatedAt = null,

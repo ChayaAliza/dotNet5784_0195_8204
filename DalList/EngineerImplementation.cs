@@ -23,11 +23,11 @@ internal class EngineerImplementation : IEngineer
     //A method that updates an existing object.
     public void Update(Engineer item)
     {
-        Engineer? removeTask = Read(item.Id)!;
+        Engineer? removeEngineer = Read(item.Id)!;
         if (Read(item.Id) is null) //Checking if there is an object with the same ID number, in the list.
-            throw new DalDoesNotExistException($"Task with ID={item.Id} doesn't exist"); //A suitable exception throw.
+            throw new DalDoesNotExistException($"Engineer with ID={item.Id} doesn't exist"); //A suitable exception throw.
 
-        DataSource.Engineers.Remove(removeTask); //Removes the reference to an existing object from a list.
+        DataSource.Engineers.Remove(removeEngineer); //Removes the reference to an existing object from a list.
         DataSource.Engineers.Add(item); //Added to the list the reference to the updated object received as a parameter.
     }
  
