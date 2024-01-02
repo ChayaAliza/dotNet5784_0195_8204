@@ -8,7 +8,7 @@ public class Task
     public string? Description { get; set; }
     public string? Alias { get; set; }
     public bool IsActive { get; set; }
-    public DateTime CreateAt { get; set; }
+    public DateTime? CreateAt { get; set; } = null;
     public Status? Status { get; set; } = null;
     public MilestoneInTask? Milestone { get; set; } = null;
     public DateTime? Start { get; set; } = null;
@@ -19,5 +19,6 @@ public class Task
     public string? Deliverables { get; set; } = null;
     public string? Remarks { get; set; } = null;
     public EngineerInTask? Engineer { get; set; } = null;
+    public List<TaskInList>? Dependencies { get; set; } = null;
     public EngineerExperience? Level { get; set; } = null;
 }
