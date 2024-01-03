@@ -82,11 +82,11 @@ internal class EngineerImplementation : IEngineer
 
     public void Update(BO.Engineer boEngineer)//?????
     {
+        
         DO.Engineer? doEngineer = s_dal.Engineer.Read(boEngineer.Id)!;
         if (Read(doEngineer.Id) is null)
             throw new BO.BlDoesNotExistException($"Engineer with ID={doEngineer.Id} doesn't exist");
-        s_dal.Engineer.Delete(doEngineer.Id);
-        s_dal.Engineer.Create(doEngineer);
+        s_dal.Engineer.Update(doEngineer);
     }
 
 

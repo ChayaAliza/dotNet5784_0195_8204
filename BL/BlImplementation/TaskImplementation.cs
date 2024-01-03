@@ -2,7 +2,6 @@
 using BO;
 
 
-
 namespace BlImplementation;
 
 internal class TaskImplementation : ITask
@@ -52,7 +51,7 @@ internal class TaskImplementation : ITask
             IsActive = doTask.active,
             CreateAt = doTask.CreatedAt,
             Status = CalculateStatus(doTask),
-            Milestone = null,
+            Milestone = CalculateMilestone(id),
             Start = doTask.Start,
             ScheduledDate = doTask.ScheduledDate,
             ForecastDate = doTask.ForecastDate,
@@ -67,15 +66,63 @@ internal class TaskImplementation : ITask
         };
     }
    
-    public IEnumerable<BO.Task> ReadAll()
+    public IEnumerable<BO.Task> ReadAll(Func<BO.Task, bool>? filter = null)
     {
-        throw new NotImplementedException();
+        Func<BO.Task, bool>? filterTemp = filter != null ? filter! : item => true;
+        List<BO.Task>? boTasks = null;
+
+        foreach (DO.Task? doTask in s_dal.Task.ReadAll())
+        {
+            boTasks!.Add(new BO.Task()
+            {
+                Id = doTask!.Id,
+                Description = doTask.Description,
+                Alias = doTask.Allas,
+                IsActive = doTask.active,
+                CreateAt = doTask.CreatedAt,
+                Status = CalculateStatus(doTask),
+                Milestone = CalculateMilestone(doTask.Id),
+                Start = doTask.Start,
+                ScheduledDate = doTask.ScheduledDate,
+                ForecastDate = doTask.ForecastDate,
+                Deadline = doTask.DeadLine,
+                Complete = doTask.Complete,
+                Deliverables = doTask.Deliverables,
+                Remarks = doTask.Remarks,
+                Engineer = CalculateEngineer(doTask.Id),
+                Dependencies = calculateTaskInList(doTask.Id),
+                Level = (BO.EngineerExperience)doTask.CopmlexityLevel!
+
+            });
+        }
+        return boTasks!.Where(filterTemp).ToList();
     }
 
     public void Update(BO.Task boTask)
     {
-        throw new NotImplementedException();
+        try
+        {
+            if (boTask.Milestone != null)
+            {
+                var dependenciesToCreate = boTask.Dependencies!
+               .Select(task => new DO.Dependency
+               {
+                   DependentTask = boTask.Id,
+                   DependsOnTask = task.Id
+               })
+               .ToList();
+                dependenciesToCreate.ForEach(dependency => s_dal.Dependency.Create(dependency));
+            }
+            DO.Task doTask = s_dal.Task.Read(boTask.Id)!;
+            s_dal.Task.Update(doTask);
+        }
+        catch (DO.DalAlreadyExistsException ex)
+        {
+            throw new BO.BlAlreadyExistsException($"Engineer with ID={boTask.Id} not exists", ex);
+        }
     }
+
+
     public static Status CalculateStatus(DO.Task task)
     {
         if (task.Start == null && task.DeadLine == null)
@@ -92,40 +139,49 @@ internal class TaskImplementation : ITask
 
         return Status.Unscheduled;
     }
+
+    private MilestoneInTask CalculateMilestone(int id)
+    {
+        MilestoneInTask milestone = null!;
+        List<DO.Dependency?>? dependencyList = new List<DO.Dependency?>(s_dal.Dependency.ReadAll(dependency => dependency.DependentTask == id));
+        foreach (DO.Dependency? dependency in dependencyList)
+        {
+            DO.Task task = s_dal.Task.Read(dependency!.DependsOnTask)!;
+            if (task.MilesStone == true)
+            {
+                milestone = new BO.MilestoneInTask
+                {
+                    Id = task.Id, 
+                    Alias = task.Allas
+                };
+                     
+            }
+        }
+        return milestone;
+    }
+
     private EngineerInTask CalculateEngineer(int id)
     {
-        DO.Task? t = s_dal.Task.Read(id);
-        if (t != null)
+        DO.Task? doTask = s_dal.Task.Read(id);
+        BO.EngineerInTask engineerInTask = null!;
+        if (doTask != null)
         {
-            BO.EngineerInTask engineer = new BO.EngineerInTask();
-            engineer.Id = t.EngineerId;
-            DO.Engineer? e = s_dal.Engineer.Read(t.EngineerId);
-            if (e != null)
+            DO.Engineer? doEngineer = s_dal?.Engineer?.Read((int)doTask?.EngineerId!);///??????
+            engineerInTask = new BO.EngineerInTask
             {
-                engineer.Name = e.Name;
-                return engineer;
-            }
-            else
-            {
-                // Handle case where Engineer data is null
-                // For example: throw exception, log, return default values, etc.
-            }
+                Id = (int)doTask?.EngineerId!,///?????
+                Name = doEngineer?.Name
+            };
         }
-        else
-        {
-            // Handle case where Task data is null
-            // For example: throw exception, log, return default values, etc.
-        }
-
-        // Return default value or handle exceptional cases
-        return new BO.EngineerInTask(); // You might want to handle the default return based on your application logic
+        
+        return engineerInTask;
     }
 
     private List<TaskInList> calculateTaskInList(int id)
     {
         DO.Task? doTask = s_dal.Task.Read(id)!;
 
-        List<DO.Dependency?>? dependencyList = new List<DO.Dependency?>(s_dal.Dependency.ReadAll(dependency => dependency.DependentTask == id));//לוקחת את המשימות שהמשימה תלויה בהם
+        List<DO.Dependency?>? dependencyList = new List<DO.Dependency?>(s_dal.Dependency.ReadAll(dependency => dependency.DependentTask == id));
 
         List<BO.TaskInList?>? tasksInList = new List<BO.TaskInList?>(dependencyList.Select(dependency =>
         {
