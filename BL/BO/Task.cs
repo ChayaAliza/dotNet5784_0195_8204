@@ -21,4 +21,5 @@ public class Task
     public EngineerInTask? Engineer { get; set; } = null;
     public List<TaskInList>? Dependencies { get; set; } = null;
     public EngineerExperience? Level { get; set; } = null;
+    public override string ToString() => this.ToStringProperty();
 }
