@@ -47,8 +47,8 @@ internal class DependencyImplementation : IDependency
                     select new Dependency
                     {
                         Id = (int)depElement.Element("Id")!,
-                        DependentTask = (int?)depElement.Element("DependentTask"),
-                        DependsOnTask = (int?)depElement.Element("DependsOnTask")
+                        DependentTask = (int)depElement.Element("DependentTask")!,
+                        DependsOnTask = (int)depElement.Element("DependsOnTask")!
                     };
 
         return query.SingleOrDefault();
@@ -62,8 +62,8 @@ internal class DependencyImplementation : IDependency
                     let dependency = new Dependency
                     {
                         Id = (int)depElement.Element("Id")!,
-                        DependentTask = (int?)depElement.Element("DependentTask"),
-                        DependsOnTask = (int?)depElement.Element("DependsOnTask")
+                        DependentTask = (int)depElement.Element("DependentTask")!,
+                        DependsOnTask = (int)depElement.Element("DependsOnTask")!
                     }
                     where filter(dependency)
                     select dependency;
@@ -79,8 +79,8 @@ internal class DependencyImplementation : IDependency
                     let dependency = new Dependency
                     {
                         Id = (int)depElement.Element("Id")!,
-                        DependentTask = (int?)depElement.Element("DependentTask"),
-                        DependsOnTask = (int?)depElement.Element("DependsOnTask")
+                        DependentTask = (int)depElement.Element("DependentTask")!,
+                        DependsOnTask = (int)depElement.Element("DependsOnTask")!
                     }
                     where filter == null || filter(dependency)
                     select dependency;

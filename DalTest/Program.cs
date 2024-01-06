@@ -264,9 +264,9 @@ class Program
                     //Console.WriteLine("enter Dependency's id to add");
                     //int Id = int.Parse(Console.ReadLine()!);
                     Console.WriteLine("enter Dependency's DependentTask");
-                    int? NDependentTask = int.Parse(Console.ReadLine()!);
+                    int NDependentTask = int.Parse(Console.ReadLine()!);
                     Console.WriteLine("enter Dependency's DependsOnTask");
-                    int? DependsOnTask = int.Parse(Console.ReadLine()!);
+                    int DependsOnTask = int.Parse(Console.ReadLine()!);
                     DO.Dependency d = new DO.Dependency(1, NDependentTask, DependsOnTask);
                     try
                     {
@@ -306,9 +306,9 @@ class Program
                         Console.WriteLine(s_dal.Dependency!.Read(idUpdate));
                         int _id = idUpdate;
                         Console.WriteLine("enter Dependency's DependentTask");
-                        int? NDependentT = int.Parse(Console.ReadLine()!);
+                        int NDependentT = int.Parse(Console.ReadLine()!);
                         Console.WriteLine("enter Dependency's DependsOnTask");
-                        int? DependsOnT = int.Parse(Console.ReadLine()!);
+                        int DependsOnT = int.Parse(Console.ReadLine()!);
                         DO.Dependency de = new DO.Dependency(_id, NDependentT, DependsOnT);
                         s_dal.Dependency.Update(de);
                     }

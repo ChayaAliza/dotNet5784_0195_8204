@@ -6,8 +6,8 @@ using System.Collections.Generic;
 
 internal class EngineerImplementation : IEngineer
 {
-    private DalApi.IDal s_dal = Factory.Get;
-   
+
+    private DalApi.IDal s_dal = DalApi.Factory.Get;
     public int Create(BO.Engineer boEngineer)
     {
         DO.Engineer doEngineer = new DO.Engineer(boEngineer.Id, boEngineer.Name, boEngineer.Email, (DO.EngineerExperience)boEngineer.Level, boEngineer.Cost, boEngineer.IsActive);
