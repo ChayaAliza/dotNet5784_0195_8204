@@ -379,6 +379,7 @@ namespace BlTest
                 Console.WriteLine("enum MainMenu { EXIT, MILESTONE, ENGINEER, TASK }");
                 int.TryParse(Console.ReadLine() ?? throw new Exception("Enter a number please"), out chooseMainMenu);
             } while (chooseMainMenu > 0 && chooseMainMenu < 5);
+           
 
         }
     }

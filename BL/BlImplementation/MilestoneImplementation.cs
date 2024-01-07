@@ -16,8 +16,8 @@ internal class MilestoneImplementation : IMilestone
         throw new NotImplementedException();
     }
 
-    public void Update(Milestone boMilestone)
+    public void Update(BO.Milestone boMilestone)
     {
-        throw new NotImplementedException();
+       
     }
 }
