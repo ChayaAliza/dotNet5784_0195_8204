@@ -21,7 +21,7 @@ namespace BlTest
                 {
                     case 1:
                         Console.WriteLine("Enter id, name,isactive, email, level, cost and role");
-                        int idEngineer , idTask;
+                        int idEngineer, idTask;
                         string nameEngineer, emailEngineer, inputLevel;
                         DO.EngineerExperience levelEngineer;
                         bool isActive;
@@ -166,12 +166,12 @@ namespace BlTest
                 {
                     case 1:
                         Console.WriteLine("Enter  description, alias,deriverables, remarks,milestone, dates and task's level");
-                        int taskId, taskEngineerId , milestoneInTaskId , engineerInTaskId , taskInListId;
-                        string taskDescription , taskAlias, taskDeliverables , taskRemarks , inputEE;
+                        int taskId, taskEngineerId, milestoneInTaskId, engineerInTaskId, taskInListId;
+                        string taskDescription, taskAlias, taskDeliverables, taskRemarks, inputEE;
                         bool isActive;
                         TimeSpan requiredEffortTime;
                         DateTime taskCreateAt;
-                        DateTime taskStart , taskForecastDate , taskDeadline, taskComplete;
+                        DateTime taskStart, taskForecastDate, taskDeadline, taskComplete;
                         BO.EngineerExperience taskLevel;
                         List<BO.TaskInList> taskInList = new List<TaskInList>();
                         int.TryParse(Console.ReadLine() ?? throw new Exception("enter a number please"), out taskId);
@@ -263,7 +263,7 @@ namespace BlTest
                         break;
                     case 4:
 
-                        int idTaskUpdate,engineerInTaskIdUpdate, taskEngineerIdUpdate;
+                        int idTaskUpdate, engineerInTaskIdUpdate, taskEngineerIdUpdate;
                         string? taskDescriptionUpdate, taskAliasUpdate, taskDeliverablesUpdate, taskRemarksUpdate, inputEEUpdate;
                         bool isActiveUpdate;
                         DateTime taskCreateAtUpdate, taskStartUpdate, taskForecastDateUpdate, taskDeadlineUpdate, taskCompleteUpdate;
@@ -290,7 +290,7 @@ namespace BlTest
                         int.TryParse(Console.ReadLine() ?? updatedTask.Milestone!.Id.ToString(), out milestoneInTaskId);
                         int.TryParse(Console.ReadLine() ?? null, out taskInListId);
                         int.TryParse(Console.ReadLine() ?? updatedTask.Engineer!.Id.ToString(), out engineerInTaskIdUpdate);
-                         while (taskInListId != -1)
+                        while (taskInListId != -1)
                         {
                             taskInListUpdate!.Add(new BO.TaskInList()
                             {
@@ -379,7 +379,7 @@ namespace BlTest
                 Console.WriteLine("enum MainMenu { EXIT, MILESTONE, ENGINEER, TASK }");
                 int.TryParse(Console.ReadLine() ?? throw new Exception("Enter a number please"), out chooseMainMenu);
             } while (chooseMainMenu > 0 && chooseMainMenu < 5);
- 
+
         }
     }
 }
