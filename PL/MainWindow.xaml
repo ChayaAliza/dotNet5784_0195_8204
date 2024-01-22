@@ -1,0 +1,22 @@
+﻿<Window x:Class="PL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Handle Engineer" HorizontalAlignment="Center" Margin="0,184,0,0" VerticalAlignment="Top" Height="60" Width="112" Click="btnEngineers_Click"/>
+        <Button Content="Initialization" HorizontalAlignment="Left" Margin="194,182,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="111" Height="58" Click="btnInitialization_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.567"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+    </Grid>
+</Window>
