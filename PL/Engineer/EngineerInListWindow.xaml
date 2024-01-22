@@ -21,13 +21,12 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="filter by:" Margin="37,0,42,0" VerticalAlignment="Center"/>
-            <ComboBox Grid.Column="1" VerticalAlignment="Top" Height="46"/>
+            <ComboBox Grid.Column="1" VerticalAlignment="Top" Height="46" SelectionChanged="ComboBox_SelectionChanged"/>
         </Grid>
-        <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding EngineersList}">
+        <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding EngineerList}" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Engineer Name" DisplayMemberBinding="{Binding Name}" />
-                    <!-- Replace "Name" with the actual property you want to display -->
+                    <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DalTest;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -24,27 +25,30 @@ namespace PL.Engineer
         public EngineerInListWindow()
         {
             InitializeComponent();
-
-            var temp = s_bl?.Engineer.ReadAll();
-            EngineersList = temp == null ? new() : new(temp!);
+            EngineerList = s_bl?.Engineer.ReadAll()!;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
           
         }
-        public ObservableCollection<BO.Engineer> EngineersList
+        public IEnumerable<BO.Engineer> EngineerList
         {
-            get { return (ObservableCollection<BO.Engineer>)GetValue(EngineersListProperty); }
-            set { SetValue(EngineersListProperty, value); }
+            get { return (IEnumerable<BO.Engineer>)GetValue(EngineerListProperty); }
+            set { SetValue(EngineerListProperty, value); }
         }
-        public static readonly DependencyProperty EngineersListProperty =
-           DependencyProperty.Register("EngineersList", typeof(ObservableCollection<BO.Engineer>), typeof(EngineerInListWindow), new PropertyMetadata(null));
-        //public IEnumerable<BO.Engineer> EngineersList
-        //{
-        //    get { return (IEnumerable<BO.Engineer>)GetValue(CourseListProperty); }
-        //    set { SetValue(CourseListProperty, value); }
-        //}
 
-       
+        public static readonly DependencyProperty EngineerListProperty =
+            DependencyProperty.Register("EngineerList", typeof(IEnumerable<BO.Engineer>), typeof(EngineerInListWindow), new PropertyMetadata(null));
+
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
