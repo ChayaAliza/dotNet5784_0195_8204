@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,20 +24,27 @@ namespace PL.Engineer
         public EngineerInListWindow()
         {
             InitializeComponent();
-        }
 
+            var temp = s_bl?.Engineer.ReadAll();
+            EngineersList = temp == null ? new() : new(temp!);
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
           
         }
-        public IEnumerable<BO.Engineer> EngineersList
+        public ObservableCollection<BO.Engineer> EngineersList
         {
-            get { return (IEnumerable<BO.Engineer>)GetValue(CourseListProperty); }
-            set { SetValue(CourseListProperty, value); }
+            get { return (ObservableCollection<BO.Engineer>)GetValue(EngineersListProperty); }
+            set { SetValue(EngineersListProperty, value); }
         }
+        public static readonly DependencyProperty EngineersListProperty =
+           DependencyProperty.Register("EngineersList", typeof(ObservableCollection<BO.Engineer>), typeof(EngineerInListWindow), new PropertyMetadata(null));
+        //public IEnumerable<BO.Engineer> EngineersList
+        //{
+        //    get { return (IEnumerable<BO.Engineer>)GetValue(CourseListProperty); }
+        //    set { SetValue(CourseListProperty, value); }
+        //}
 
-        public static readonly DependencyProperty CourseListProperty =
-            DependencyProperty.Register("CourseList", typeof(IEnumerable<BO.Engineer>), typeof(EngineerWindow), new PropertyMetadata(null));
-
+       
     }
 }

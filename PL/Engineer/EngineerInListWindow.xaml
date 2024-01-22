@@ -23,10 +23,11 @@
             <Label Grid.Column="0" Content="filter by:" Margin="37,0,42,0" VerticalAlignment="Center"/>
             <ComboBox Grid.Column="1" VerticalAlignment="Top" Height="46"/>
         </Grid>
-        <ListView Grid.Row="1">
+        <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding EngineersList}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Engineer Name" DisplayMemberBinding="{Binding Name}" />
+                    <!-- Replace "Name" with the actual property you want to display -->
                 </GridView>
             </ListView.View>
         </ListView>
