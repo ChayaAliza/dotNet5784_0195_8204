@@ -20,7 +20,7 @@ namespace BlTest
                 switch (chooseSubMenu)
                 {
                     case 1:
-                        Console.WriteLine("Enter id, name,isactive, email, level, cost and role");
+                        Console.WriteLine("Enter id, name,isactive, email, level, and cost");
                         int idEngineer, idTask;
                         string nameEngineer, emailEngineer, inputLevel;
                         DO.EngineerExperience levelEngineer;

@@ -18,75 +18,7 @@
     <active>true</active>
   </Task>
   <Task>
-    <Id>0</Id>
-    <Description>Architectural Design and Approval</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>Design, Approval</Allas>
-    <MilesStone>true</MilesStone>
-    <CreatedAt>2023-01-20T00:00:00</CreatedAt>
-    <Start>2023-02-15T00:00:00</Start>
-    <ScheduledDate>2023-08-30T00:00:00</ScheduledDate>
-    <ForecastDate>2023-08-01T00:00:00</ForecastDate>
-    <DeadLine>2023-09-15T00:00:00</DeadLine>
-    <Complete>2023-10-15T00:00:00</Complete>
-    <Deliverables>Architectural drawings, Approval from local authorities</Deliverables>
-    <Remarks>Revision required for certain design aspects</Remarks>
-    <EngineerId>214338204</EngineerId>
-    <active>true</active>
-  </Task>
-  <Task>
-    <Id>0</Id>
-    <Description>Site Preparation and Clearing</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>Construction, Site Management</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt>2023-01-05T00:00:00</CreatedAt>
-    <Start>2023-01-25T00:00:00</Start>
-    <ScheduledDate>2023-04-30T00:00:00</ScheduledDate>
-    <ForecastDate>2023-04-20T00:00:00</ForecastDate>
-    <DeadLine>2023-05-20T00:00:00</DeadLine>
-    <Complete>2023-10-15T00:00:00</Complete>
-    <Deliverables>Cleared site, Infrastructure setup</Deliverables>
-    <Remarks>Unexpected soil quality required additional groundwork</Remarks>
-    <EngineerId>33939232</EngineerId>
-    <active>true</active>
-  </Task>
-  <Task>
-    <Id>0</Id>
-    <Description>Interior Design and Furnishing</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>Design, Procurement</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt>2023-04-15T00:00:00</CreatedAt>
-    <Start>2023-05-10T00:00:00</Start>
-    <ScheduledDate>2023-11-30T00:00:00</ScheduledDate>
-    <ForecastDate>2023-11-01T00:00:00</ForecastDate>
-    <DeadLine>2023-12-01T00:00:00</DeadLine>
-    <Complete>2023-10-15T00:00:00</Complete>
-    <Deliverables>Interior design plans, Furniture procurement</Deliverables>
-    <Remarks>Long lead time for custom furniture pieces</Remarks>
-    <EngineerId>39282298</EngineerId>
-    <active>true</active>
-  </Task>
-  <Task>
-    <Id>0</Id>
-    <Description>IT Infrastructure Setup</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>Technology, Setup</Allas>
-    <MilesStone>true</MilesStone>
-    <CreatedAt>2023-05-20T00:00:00</CreatedAt>
-    <Start>2023-06-15T00:00:00</Start>
-    <ScheduledDate>2024-03-31T00:00:00</ScheduledDate>
-    <ForecastDate>2024-03-01T00:00:00</ForecastDate>
-    <DeadLine>2024-04-01T00:00:00</DeadLine>
-    <Complete>2023-10-15T00:00:00</Complete>
-    <Deliverables>Network infrastructure, Systems installation</Deliverables>
-    <Remarks>Complexity in integrating different systems</Remarks>
-    <EngineerId>216678123</EngineerId>
-    <active>true</active>
-  </Task>
-  <Task>
-    <Id>42</Id>
+    <Id>18</Id>
     <Description>make a soup as the recipe</Description>
     <CopmlexityLevel>Rookie</CopmlexityLevel>
     <Allas>A soup making</Allas>
@@ -99,11 +31,11 @@
     <Complete xsi:nil="true" />
     <Deliverables />
     <Remarks />
-    <EngineerId xsi:nil="true" />
+    <EngineerId>377883968</EngineerId>
     <active>false</active>
   </Task>
   <Task>
-    <Id>43</Id>
+    <Id>19</Id>
     <Description>take the books and go change them</Description>
     <CopmlexityLevel>Junior</CopmlexityLevel>
     <Allas>libary</Allas>
@@ -116,47 +48,14 @@
     <Complete xsi:nil="true" />
     <Deliverables />
     <Remarks />
-    <EngineerId xsi:nil="true" />
+    <EngineerId>377883968</EngineerId>
     <active>false</active>
   </Task>
+ 
   <Task>
-    <Id>44</Id>
-    <Description>remember to take the money from the waller</Description>
+    <Id>22</Id>
+    <Description>make a soup as the recipe</Description>
     <CopmlexityLevel>Junior</CopmlexityLevel>
-    <Allas>change money</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>45</Id>
-    <Description>u have to go to make Achdut with Am Israel</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>Fueneral</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>46</Id>
-    <Description>make a soup as the recipe</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
     <Allas>A soup making</Allas>
     <MilesStone>false</MilesStone>
     <CreatedAt xsi:nil="true" />
@@ -167,79 +66,11 @@
     <Complete xsi:nil="true" />
     <Deliverables />
     <Remarks />
-    <EngineerId xsi:nil="true" />
+    <EngineerId>228690264</EngineerId>
     <active>false</active>
   </Task>
   <Task>
-    <Id>47</Id>
-    <Description>take the books and go change them</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>libary</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>48</Id>
-    <Description>remember to take the money from the waller</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>change money</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>49</Id>
-    <Description>u have to go to make Achdut with Am Israel</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>Fueneral</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>50</Id>
-    <Description>make a soup as the recipe</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>A soup making</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>51</Id>
+    <Id>23</Id>
     <Description>take the books and go change them</Description>
     <CopmlexityLevel>Junior</CopmlexityLevel>
     <Allas>libary</Allas>
@@ -252,164 +83,11 @@
     <Complete xsi:nil="true" />
     <Deliverables />
     <Remarks />
-    <EngineerId xsi:nil="true" />
+    <EngineerId>398904300</EngineerId>
     <active>false</active>
   </Task>
   <Task>
-    <Id>52</Id>
-    <Description>remember to take the money from the waller</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>change money</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>53</Id>
-    <Description>u have to go to make Achdut with Am Israel</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>Fueneral</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>54</Id>
-    <Description>make a soup as the recipe</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>A soup making</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>2</Id>
-    <Description>make a soup as the recipe</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>A soup making</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>3</Id>
-    <Description>take the books and go change them</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>libary</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>4</Id>
-    <Description>remember to take the money from the waller</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>change money</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>5</Id>
-    <Description>u have to go to make Achdut with Am Israel</Description>
-    <CopmlexityLevel>export</CopmlexityLevel>
-    <Allas>Fueneral</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>6</Id>
-    <Description>make a soup as the recipe</Description>
-    <CopmlexityLevel>Junior</CopmlexityLevel>
-    <Allas>A soup making</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>7</Id>
-    <Description>take the books and go change them</Description>
-    <CopmlexityLevel>Junior</CopmlexityLevel>
-    <Allas>libary</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>8</Id>
+    <Id>24</Id>
     <Description>remember to take the money from the waller</Description>
     <CopmlexityLevel>Junior</CopmlexityLevel>
     <Allas>change money</Allas>
@@ -422,81 +100,13 @@
     <Complete xsi:nil="true" />
     <Deliverables />
     <Remarks />
-    <EngineerId xsi:nil="true" />
+    <EngineerId>377883968</EngineerId>
     <active>false</active>
   </Task>
   <Task>
-    <Id>9</Id>
+    <Id>25</Id>
     <Description>u have to go to make Achdut with Am Israel</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>Fueneral</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>10</Id>
-    <Description>make a soup as the recipe</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>A soup making</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>11</Id>
-    <Description>take the books and go change them</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
-    <Allas>libary</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>12</Id>
-    <Description>remember to take the money from the waller</Description>
     <CopmlexityLevel>Junior</CopmlexityLevel>
-    <Allas>change money</Allas>
-    <MilesStone>false</MilesStone>
-    <CreatedAt xsi:nil="true" />
-    <Start>2004-08-07T00:00:00</Start>
-    <ScheduledDate xsi:nil="true" />
-    <ForecastDate xsi:nil="true" />
-    <DeadLine xsi:nil="true" />
-    <Complete xsi:nil="true" />
-    <Deliverables />
-    <Remarks />
-    <EngineerId xsi:nil="true" />
-    <active>false</active>
-  </Task>
-  <Task>
-    <Id>13</Id>
-    <Description>u have to go to make Achdut with Am Israel</Description>
-    <CopmlexityLevel>Rookie</CopmlexityLevel>
     <Allas>Fueneral</Allas>
     <MilesStone>false</MilesStone>
     <CreatedAt xsi:nil="true" />
@@ -505,7 +115,7 @@
     <ForecastDate xsi:nil="true" />
     <DeadLine xsi:nil="true" />
     <Complete xsi:nil="true" />
-    <EngineerId xsi:nil="true" />
+    <EngineerId>358524751</EngineerId>
     <active>false</active>
   </Task>
 </ArrayOfTask>

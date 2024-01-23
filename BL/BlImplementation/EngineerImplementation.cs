@@ -59,8 +59,8 @@ internal class EngineerImplementation : IEngineer
 
         IEnumerable<BO.Engineer> engineers =
         from DO.Engineer doEngineer in s_dal.Engineer.ReadAll()
-        let task = s_dal.Task.ReadAll(task => task?.Id == doEngineer.Id).FirstOrDefault()
-        select new BO.Engineer
+        let task = s_dal.Task.ReadAll(task => task?.EngineerId == doEngineer.Id).FirstOrDefault()
+        select new BO.Engineer()
         {
             Id = doEngineer.Id,
             Name = doEngineer.Name,
@@ -86,7 +86,8 @@ internal class EngineerImplementation : IEngineer
         DO.Engineer? doEngineer = s_dal.Engineer.Read(boEngineer.Id)!;
         if (Read(doEngineer.Id) is null)
             throw new BO.BlDoesNotExistException($"Engineer with ID={doEngineer.Id} doesn't exist");
-        s_dal.Engineer.Update(doEngineer);
+        DO.Engineer doEn = new DO.Engineer(boEngineer.Id, boEngineer.Name, boEngineer.Email, (DO.EngineerExperience)boEngineer.Level, boEngineer.Cost);
+        s_dal.Engineer.Update(doEn);
     }
 
 

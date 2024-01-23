@@ -16,7 +16,7 @@ public static class Initialization
 
     private static void createEngineer()
     {
-
+        
         (string Name, string Email)[] engineerDetails =
          { ("Netanal Bretler","Nb214490195@gmail.com") ,
           ("Refal Klein","Rklein1983@gmail.com") ,
@@ -58,9 +58,10 @@ public static class Initialization
             ("change money", "remember to take the money from the waller"),
             ("Fueneral", "u have to go to make Achdut with Am Israel")
         };
+        var engineers = s_dal!.Engineer!.ReadAll().ToList();
+        int index = s_rand.Next(0, engineers.Count());
         foreach (var taskd in TaskDetails)
         {
-
             EngineerExperience CopmlexityLevel = (EngineerExperience)s_rand.Next(0, 3);
             DateTime Start = new DateTime(2004, 8, 7);
             DateTime? ForecastDate = null;
@@ -69,10 +70,9 @@ public static class Initialization
             DateTime? Complete = null;
             DateTime? CreatedAt = null;
             bool MilesStone = false;
-
             string? Deliverables = null;
             string? Remarks = null;
-            int? EngineerId = null;
+            int? EngineerId = engineers[index]?.Id ;
             Task newTask = new(0, taskd.Description, CopmlexityLevel, taskd.Alias, MilesStone, CreatedAt, Start, ScheduledDate , ForecastDate, DeadLine, Complete , Deliverables , Remarks , EngineerId);
             s_dal!.Task.Create(newTask);
         }

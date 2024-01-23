@@ -22,14 +22,15 @@ namespace PL.Engineer
     public partial class EngineerInListWindow : Window
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
+        public BO.EngineerExperience level { get; set; } = BO.EngineerExperience.All;
         public EngineerInListWindow()
         {
             InitializeComponent();
             EngineerList = s_bl?.Engineer.ReadAll()!;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnAddEngineer_Click(object sender, RoutedEventArgs e)
         {
-          
+            new EngineerWindow().ShowDialog();
         }
         public IEnumerable<BO.Engineer> EngineerList
         {
@@ -41,14 +42,23 @@ namespace PL.Engineer
             DependencyProperty.Register("EngineerList", typeof(IEnumerable<BO.Engineer>), typeof(EngineerInListWindow), new PropertyMetadata(null));
 
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+ 
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void cbEngineerSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            EngineerList = (level == BO.EngineerExperience.All) ?
+            s_bl?.Engineer.ReadAll()! : s_bl?.Engineer.ReadAll(item => item.Level == level)!;
+        }
+
+        private void update_add(object sender, MouseButtonEventArgs e)
+        {
+            BO.Engineer? engineerInList = (sender as ListView)?.SelectedItem as BO.Engineer;
+            new EngineerWindow(engineerInList!.Id).ShowDialog();
         }
     }
 }
