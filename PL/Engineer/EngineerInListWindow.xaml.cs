@@ -42,8 +42,6 @@ namespace PL.Engineer
             DependencyProperty.Register("EngineerList", typeof(IEnumerable<BO.Engineer>), typeof(EngineerInListWindow), new PropertyMetadata(null));
 
 
- 
-
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

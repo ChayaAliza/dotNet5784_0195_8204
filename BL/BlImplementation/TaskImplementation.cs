@@ -1,5 +1,6 @@
 ﻿using BlApi;
 using BO;
+using System.Linq;
 
 
 namespace BlImplementation;
@@ -10,22 +11,25 @@ internal class TaskImplementation : ITask
 
     public int Create(BO.Task boTask)
     {
-        DO.Task doTask = new DO.Task(boTask.Id , boTask.Description , (DO.EngineerExperience)boTask.Level! , boTask.Alias , false
-            , boTask.CreateAt , boTask.Start , boTask.ScheduledDate , boTask.ForecastDate , boTask.Deadline , boTask.Complete , boTask.Deliverables
-            , boTask.Remarks , boTask.Engineer!.Id , boTask.IsActive);
+        
+      
+        DO.Task doTask = new DO.Task(boTask.Id, boTask.Description, (DO.EngineerExperience)boTask.Level!, boTask.Alias, false, boTask.CreateAt, boTask.Start, boTask.ScheduledDate, boTask.ForecastDate, boTask.Deadline, boTask.Complete, boTask.Deliverables, boTask.Remarks,boTask.Engineer!.Id, false);
         try
         {
-            var dependenciesToCreate = boTask.Dependencies!
+            
+            int newId = s_dal.Task.Create(doTask);
+            if (boTask.Dependencies != null)
+            {
+                var dependenciesToCreate = boTask.Dependencies!
                 .Select(task => new DO.Dependency
                 {
                     DependentTask = boTask.Id,
-                    DependsOnTask = task.Id
+                    DependsOnTask = newId
                 })
                 .ToList();
-            dependenciesToCreate.ForEach(dependency => s_dal.Dependency.Create(dependency));
-
-            int newId = s_dal.Task.Create(doTask);
-
+                dependenciesToCreate.ForEach(dependency => s_dal.Dependency.Create(dependency));
+            }
+            
             return newId;
         }
         catch (DO.DalAlreadyExistsException ex)
@@ -65,39 +69,39 @@ internal class TaskImplementation : ITask
             
         };
     }
-   
     public IEnumerable<BO.Task> ReadAll(Func<BO.Task, bool>? filter = null)
     {
-        Func<BO.Task, bool>? filterTemp = filter != null ? filter! : item => true;
-        List<BO.Task>? boTasks = null;
 
-        foreach (DO.Task? doTask in s_dal.Task.ReadAll())
+        IEnumerable<BO.Task> tasks =
+        from DO.Task doTask in s_dal.Task.ReadAll()
+
+        select new BO.Task()
         {
-            boTasks!.Add(new BO.Task()
-            {
-                Id = doTask!.Id,
-                Description = doTask.Description,
-                Alias = doTask.Allas,
-                IsActive = doTask.active,
-                CreateAt = doTask.CreatedAt,
-                Status = CalculateStatus(doTask),
-                Milestone = CalculateMilestone(doTask.Id),
-                Start = doTask.Start,
-                ScheduledDate = doTask.ScheduledDate,
-                ForecastDate = doTask.ForecastDate,
-                Deadline = doTask.DeadLine,
-                Complete = doTask.Complete,
-                Deliverables = doTask.Deliverables,
-                Remarks = doTask.Remarks,
-                Engineer = CalculateEngineer(doTask.Id),
-                Dependencies = calculateTaskInList(doTask.Id),
-                Level = (BO.EngineerExperience)doTask.CopmlexityLevel!
+            Id = doTask!.Id,
+            Description = doTask.Description,
+            Alias = doTask.Allas,
+            IsActive = doTask.active,
+            CreateAt = doTask.CreatedAt,
+            Status = CalculateStatus(doTask),
+            Milestone = CalculateMilestone(doTask.Id),
+            Start = doTask.Start,
+            ScheduledDate = doTask.ScheduledDate,
+            ForecastDate = doTask.ForecastDate,
+            Deadline = doTask.DeadLine,
+            Complete = doTask.Complete,
+            Deliverables = doTask.Deliverables,
+            Remarks = doTask.Remarks,
+            Engineer = CalculateEngineer(doTask.Id),
+            Dependencies = calculateTaskInList(doTask.Id),
+            Level = (BO.EngineerExperience)doTask.CopmlexityLevel!
 
-            });
-        }
-        return boTasks!.Where(filterTemp).ToList();
+        };
+
+        if (filter == null)
+            return tasks;
+        return tasks.Where(filter!);
     }
-
+   
     public void Update(BO.Task boTask)
     {
         try
@@ -113,8 +117,9 @@ internal class TaskImplementation : ITask
                .ToList();
                 dependenciesToCreate.ForEach(dependency => s_dal.Dependency.Create(dependency));
             }
-            DO.Task doTask = s_dal.Task.Read(boTask.Id)!;
+            DO.Task doTask = new DO.Task(boTask.Id, boTask.Description, (DO.EngineerExperience)boTask.Level!, boTask.Alias , false, boTask.CreateAt, boTask.Start, boTask.ScheduledDate, boTask.ForecastDate, boTask.Deadline, boTask.Complete, boTask.Deliverables, boTask.Remarks, boTask.Engineer!.Id , boTask.IsActive);
             s_dal.Task.Update(doTask);
+
         }
         catch (DO.DalAlreadyExistsException ex)
         {
@@ -126,7 +131,7 @@ internal class TaskImplementation : ITask
     public static Status CalculateStatus(DO.Task task)
     {
         if (task.Start == null && task.DeadLine == null)
-            return Status.Unscheduled;
+            return Status.OnTrack;
 
         if (task.Start != null && task.DeadLine != null && task.Complete == null)
             return Status.Scheduled;

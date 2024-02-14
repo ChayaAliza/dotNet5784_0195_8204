@@ -18,5 +18,13 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <Button Content="Task" HorizontalAlignment="Left" Margin="496,184,0,0" VerticalAlignment="Top" Height="60" Width="100" Click="btnTasks_Click"/>
     </Grid>
 </Window>
+
+
+
+
+
+
+
