@@ -24,7 +24,6 @@ namespace PL.Task
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
         public TaskWindow(int id = 0)
         {
-            InitializeComponent();
             if (id != 0)
             {
                 try
@@ -61,6 +60,7 @@ namespace PL.Task
                     Level = null
                 };
             }
+            InitializeComponent();
         }
       
 
@@ -109,5 +109,16 @@ namespace PL.Task
 
         public static readonly DependencyProperty TaskProperty =
             DependencyProperty.Register("Task", typeof(BO.Task), typeof(TaskWindow), new PropertyMetadata(null));
+
+        public List<BO.TaskInList>? DependencyList
+        {
+            get { return (List<BO.TaskInList>)GetValue(DependenceProperty); }
+            set { SetValue(DependenceProperty, value); }
+        }
+
+        public static readonly DependencyProperty DependenceProperty =
+                  DependencyProperty.Register("DependencyList", typeof(List<string>), typeof(TaskWindow), new PropertyMetadata(null));
+
+
     }
 }

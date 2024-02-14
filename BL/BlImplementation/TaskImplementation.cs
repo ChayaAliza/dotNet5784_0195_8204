@@ -55,7 +55,7 @@ internal class TaskImplementation : ITask
             IsActive = doTask.active,
             CreateAt = doTask.CreatedAt,
             Status = CalculateStatus(doTask),
-            Milestone = CalculateMilestone(id),
+            Milestone = null,
             Start = doTask.Start,
             ScheduledDate = doTask.ScheduledDate,
             ForecastDate = doTask.ForecastDate,
@@ -83,7 +83,7 @@ internal class TaskImplementation : ITask
             IsActive = doTask.active,
             CreateAt = doTask.CreatedAt,
             Status = CalculateStatus(doTask),
-            Milestone = CalculateMilestone(doTask.Id),
+            Milestone = null,
             Start = doTask.Start,
             ScheduledDate = doTask.ScheduledDate,
             ForecastDate = doTask.ForecastDate,
@@ -145,25 +145,25 @@ internal class TaskImplementation : ITask
         return Status.Unscheduled;
     }
 
-    private MilestoneInTask CalculateMilestone(int id)
-    {
-        MilestoneInTask milestone = null!;
-        List<DO.Dependency?>? dependencyList = new List<DO.Dependency?>(s_dal.Dependency.ReadAll(dependency => dependency.DependentTask == id));
-        foreach (DO.Dependency? dependency in dependencyList)
-        {
-            DO.Task task = s_dal.Task.Read(dependency!.DependsOnTask)!;
-            if (task.MilesStone == true)
-            {
-                milestone = new BO.MilestoneInTask
-                {
-                    Id = task.Id, 
-                    Alias = task.Allas
-                };
+    //private MilestoneInTask CalculateMilestone(int id)
+    //{
+    //    MilestoneInTask milestone = null!;
+    //    List<DO.Dependency?>? dependencyList = new List<DO.Dependency?>(s_dal.Dependency.ReadAll(dependency => dependency.DependentTask == id));
+    //    foreach (DO.Dependency? dependency in dependencyList)
+    //    {
+    //        DO.Task task = s_dal.Task.Read(dependency!.DependsOnTask)!;
+    //        if (task.MilesStone == true)
+    //        {
+    //            milestone = new BO.MilestoneInTask
+    //            {
+    //                Id = task.Id, 
+    //                Alias = task.Allas
+    //            };
                      
-            }
-        }
-        return milestone;
-    }
+    //        }
+    //    }
+    //    return milestone;
+    //}
 
     private EngineerInTask CalculateEngineer(int id)
     {

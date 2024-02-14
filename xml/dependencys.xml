@@ -143,11 +143,11 @@
   <Dependency>
     <Id>29</Id>
     <DependentTask>3</DependentTask>
-    <DependsOnTask>3</DependsOnTask>
+    <DependsOnTask>5</DependsOnTask>
   </Dependency>
   <Dependency>
     <Id>30</Id>
-    <DependentTask>4</DependentTask>
+    <DependentTask>5</DependentTask>
     <DependsOnTask>4</DependsOnTask>
   </Dependency>
 </ArrayOfDependency>
