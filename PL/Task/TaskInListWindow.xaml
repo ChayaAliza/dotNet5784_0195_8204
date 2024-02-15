@@ -27,7 +27,22 @@
         <ListView Grid.Row="1" Margin="10,10,10,10" ItemsSource="{Binding TaskList}" SelectionChanged="ListView_SelectionChanged" Background="White" MouseDoubleClick="update_add" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="100"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="200"/>
+                    <GridViewColumn Header="Alias" DisplayMemberBinding="{Binding Alias}" Width="100"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
+                    <GridViewColumn Header="Created At" DisplayMemberBinding="{Binding CreateAt}" Width="150"/>
+                    <GridViewColumn Header="Start Date" DisplayMemberBinding="{Binding Start}" Width="150"/>
+                    <GridViewColumn Header="Forecast Date" DisplayMemberBinding="{Binding ForecastDate}" Width="150"/>
+                    <GridViewColumn Header="Deadline Date" DisplayMemberBinding="{Binding Deadline}" Width="150"/>
+                    <GridViewColumn Header="Complete Date" DisplayMemberBinding="{Binding Complete}" Width="150"/>
+                    <GridViewColumn Header="Dependencies List" DisplayMemberBinding="{Binding Dependencies}" Width="200"/>
+                    <GridViewColumn Header="Remarks" DisplayMemberBinding="{Binding Remarks}" Width="200"/>
+                    <GridViewColumn Header="Deliverables" DisplayMemberBinding="{Binding Deliverables}" Width="200"/>
+                    <GridViewColumn Header="Engineer ID" DisplayMemberBinding="{Binding Engineer.Id}" Width="100"/>
+                    <GridViewColumn Header="Level" DisplayMemberBinding="{Binding Level}" Width="100"/>
+                    <GridViewColumn Header="Scheduled Date" DisplayMemberBinding="{Binding ScheduledDate}" Width="150"/>
+                    <!-- ניתן להוסיף עמודות נוספות ככל הצורך -->
                 </GridView>
             </ListView.View>
         </ListView>

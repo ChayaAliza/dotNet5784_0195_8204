@@ -1,5 +1,6 @@
 ﻿using BlApi;
 using BO;
+using DalApi;
 using System.Linq;
 
 
@@ -209,6 +210,38 @@ internal class TaskImplementation : ITask
         return tasksInList!;
     }
 
+
+
+    //public List<TaskInList> CalculateTaskInList(int id)
+    //{
+    //    var dependenciesList = _dal.Dependency.ReadAll(); //Creating a list of all dependencies whose id of our current task equals the id of the dependent task.
+    //                                                      //A loop that goes through each of the dependencies.
+    //    var dependentTasks = (from dependence in dependenciesList
+    //                          where dependence.DependentTask == id
+    //                          let taskDependOn = _dal.Task.Read(dependence.DependsOnTask)
+    //                          select new BO.TaskInList()
+    //                          {
+    //                              Id = dependence.DependsOnTask,
+    //                              Description = taskDependOn?.Description,
+    //                              Alias = taskDependOn?.Alias,
+    //                              Status = CalculateStatus(taskDependOn)
+    //                          });
+    //    return dependentTasks.ToList();
+    //}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -2,6 +2,7 @@
 using PL.Engineer;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,16 @@ namespace PL.Task
     public partial class TaskWindow : Window
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
+
+        public IEnumerable<BO.TaskInList> TaskDependencies
+        {
+            get { return (IEnumerable<BO.TaskInList>)GetValue(TaskDependenciesProperty); }
+            set { SetValue(TaskDependenciesProperty, value); }
+        }
+
+        public static readonly DependencyProperty TaskDependenciesProperty =
+            DependencyProperty.Register("TaskDependencies", typeof(IEnumerable<BO.TaskInList>), typeof(TaskWindow), new PropertyMetadata(null));
+
         public TaskWindow(int id = 0)
         {
             if (id != 0)
@@ -59,16 +70,12 @@ namespace PL.Task
                     },
                     Level = null
                 };
+              
             }
+            TaskDependencies = Task.Dependencies != null ? new ObservableCollection<BO.TaskInList>(Task.Dependencies) : new ObservableCollection<BO.TaskInList>();
             InitializeComponent();
         }
-      
 
-
-        private void addDependency_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -110,15 +117,9 @@ namespace PL.Task
         public static readonly DependencyProperty TaskProperty =
             DependencyProperty.Register("Task", typeof(BO.Task), typeof(TaskWindow), new PropertyMetadata(null));
 
-        public List<BO.TaskInList>? DependencyList
-        {
-            get { return (List<BO.TaskInList>)GetValue(DependenceProperty); }
-            set { SetValue(DependenceProperty, value); }
-        }
+        
 
-        public static readonly DependencyProperty DependenceProperty =
-                  DependencyProperty.Register("DependencyList", typeof(List<string>), typeof(TaskWindow), new PropertyMetadata(null));
-
+     
 
     }
 }
