@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PL.Engineer"
         mc:Ignorable="d"
         Title="EngineerInListWindow" Height="450" Width="800"
-        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" Activated="Window_activity">
     <!-- External Grid -->
     <Grid Background="SeaShell">
         <Grid.RowDefinitions>
@@ -26,7 +26,12 @@
         <ListView Grid.Row="1" Margin="10,10,10,10" ItemsSource="{Binding EngineerList}" SelectionChanged="ListView_SelectionChanged" Background="White" MouseDoubleClick="update_add">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="100"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="150"/>
+                    <GridViewColumn Header="Active" DisplayMemberBinding="{Binding IsActive}" Width="70"/>
+                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="200"/>
+                    <GridViewColumn Header="Level" DisplayMemberBinding="{Binding Level}" Width="100"/>
+                    <GridViewColumn Header="Cost" DisplayMemberBinding="{Binding Cost}" Width="70"/>
                 </GridView>
             </ListView.View>
         </ListView>

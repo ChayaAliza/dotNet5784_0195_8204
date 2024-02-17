@@ -58,5 +58,10 @@ namespace PL.Engineer
             BO.Engineer? engineerInList = (sender as ListView)?.SelectedItem as BO.Engineer;
             new EngineerWindow(engineerInList!.Id).ShowDialog();
         }
+        private void Window_activity(object sender, EventArgs e)
+        {
+            EngineerList = s_bl.Engineer.ReadAll()!;
+        }
+
     }
 }

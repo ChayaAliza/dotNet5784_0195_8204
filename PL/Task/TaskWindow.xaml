@@ -68,11 +68,15 @@
         <Button Grid.Row="13" Content="{Binding Task.Id, Mode=OneTime, Converter={StaticResource ConverIdToContentKey}}" HorizontalAlignment="Left" Width="178" Margin="53,17,0,17" Click="SaveButton_Click" FontSize="20" Background="PaleTurquoise" FontWeight="Bold" Grid.Column="1"/>
         <ListView Grid.Column="2" Grid.Row="8" ItemsSource="{Binding TaskDependencies}">
             <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+        <GridView>
+            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50"/>
+            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="150"/>
+            <GridViewColumn Header="Alias" DisplayMemberBinding="{Binding Alias}" Width="100"/>
+            <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
+        </GridView>
+    </ListView.View>
         </ListView>
+        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120"/>
 
 
     </Grid>
