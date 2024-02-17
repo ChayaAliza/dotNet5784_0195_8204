@@ -5,39 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Engineer"
         mc:Ignorable="d"
-        Title="EngineerWindow" Height="460" Width="800"
+        Title="EngineerWindow" Height="700" Width="600"
         DataContext="{Binding Engineer, RelativeSource={RelativeSource Self}, Mode=TwoWay}">
     <Grid>
-        <StackPanel Margin="20">
+        <Label Content="Engneer Details" HorizontalAlignment="Center" VerticalAlignment="Top" Height="73" Width="325" FontSize="35" FontWeight="Bold"/>
+
+        <StackPanel Margin="20,73,20,20">
             <StackPanel Orientation="Horizontal" Margin="60,15,0,10">
-                <TextBlock Width="100" VerticalAlignment="Center">ID:</TextBlock>
+                <Label Content="ID:" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" Width="80"/>
                 <TextBox Text="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" Name="txtId" Width="200" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="60,15,0,10">
-                <TextBlock Width="100" VerticalAlignment="Center">Name:</TextBlock>
+                <Label Content="Name:" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" Width="80"/>
                 <TextBox Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" Name="txtName" Width="200" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="60,15,0,10">
-                <TextBlock Width="100" VerticalAlignment="Center">Is Active:</TextBlock>
-                <CheckBox IsChecked="{Binding IsActive, Mode=TwoWay}" Name="chkIsActive" />
+            <StackPanel Orientation="Horizontal" Margin="60,12,0,10">
+                <Label Content="Is Active:" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" Width="80"/>
+                <CheckBox IsChecked="{Binding IsActive, Mode=TwoWay}" x:Name="chkIsActive" RenderTransformOrigin="4.928,0.623" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="60,15,0,10">
-                <TextBlock Width="100" VerticalAlignment="Center">Email:</TextBlock>
+                <Label Content="Email:" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" Width="80"/>
                 <TextBox Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" Name="txtEmail" Width="200" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="60,15,0,10">
-                <TextBlock Width="100" VerticalAlignment="Center">Level:</TextBlock>
+                <Label Content="Level:" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" Width="80"/>
                 <ComboBox ItemsSource="{Binding Source={StaticResource EngineerExperienceKey}}" SelectedValue="{Binding Level, Mode=TwoWay}" Name="cmbLevel" Width="200" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="60,15,0,10">
-                <TextBlock Width="100" VerticalAlignment="Center">Cost:</TextBlock>
+                <Label Content="Cost:" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" Width="80"/>
                 <TextBox Text="{Binding Cost, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" Name="txtCost" Width="200" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="60,15,0,10">
-                <TextBlock Width="100" VerticalAlignment="Center">Task:</TextBlock>
+                <Label Content="Task:" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" Width="80"/>
                 <TextBox Text="{Binding Task.Alias, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}"  Name="txtTask" Width="200" />
             </StackPanel>
         </StackPanel>
-        <Button Grid.Column="0" Content="{Binding Id, Mode=OneTime, Converter={StaticResource ConverIdToContentKey}}" HorizontalAlignment="Left" Margin="202,347,0,0"  VerticalAlignment="Top" Padding="5" Click="SaveButton_Click" Width="177"  Background="LightPink" Foreground="White" Height="42"/>
+        <Button Background="PaleTurquoise" FontWeight="Bold"  Grid.Column="0" Content="{Binding Id, Mode=OneTime, Converter={StaticResource ConverIdToContentKey}}" HorizontalAlignment="Left" Margin="171,522,0,0"  VerticalAlignment="Top" Padding="5" Click="SaveButton_Click" Width="177"  Height="42"/>
     </Grid>
 </Window>

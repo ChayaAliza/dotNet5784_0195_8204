@@ -117,9 +117,9 @@ namespace PL.Task
         public static readonly DependencyProperty TaskProperty =
             DependencyProperty.Register("Task", typeof(BO.Task), typeof(TaskWindow), new PropertyMetadata(null));
 
-        
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
-     
-
+        }
     }
 }

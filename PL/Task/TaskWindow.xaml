@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Task"
         mc:Ignorable="d"
-        Title="TaskWindow" Height="800" Width="907"
+        Title="TaskWindow" Height="800" Width="1000"
         DataContext="{Binding  RelativeSource={RelativeSource Self}}">
 
 
@@ -66,17 +66,19 @@
         <!--<ComboBox Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource DependenceListCollectionKey}}" SelectedValue="{Binding DependenceList}" VerticalAlignment="Center" Width="232" Height="29" FontSize="16" Margin="21,0,0,0"/>-->
 
         <Button Grid.Row="13" Content="{Binding Task.Id, Mode=OneTime, Converter={StaticResource ConverIdToContentKey}}" HorizontalAlignment="Left" Width="178" Margin="53,17,0,17" Click="SaveButton_Click" FontSize="20" Background="PaleTurquoise" FontWeight="Bold" Grid.Column="1"/>
-        <ListView Grid.Column="2" Grid.Row="8" ItemsSource="{Binding TaskDependencies}">
+        <ListView Grid.Column="1" Grid.Row="8" ItemsSource="{Binding TaskDependencies}" Grid.ColumnSpan="2" Height="99" Margin="301,0,27,0" VerticalAlignment="Top" Grid.RowSpan="2">
             <ListView.View>
-        <GridView>
-            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50"/>
-            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="150"/>
-            <GridViewColumn Header="Alias" DisplayMemberBinding="{Binding Alias}" Width="100"/>
-            <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
-        </GridView>
-    </ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="150"/>
+                    <GridViewColumn Header="Alias" DisplayMemberBinding="{Binding Alias}" Width="100"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
+                </GridView>
+            </ListView.View>
         </ListView>
-        <TextBox TextWrapping="Wrap" Text="TextBox" Width="120"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="209,42,0,0" Grid.Row="12" VerticalAlignment="Top"/>
+        <Button Grid.Column="2" Content="Add dependency" HorizontalAlignment="Left" Margin="78,15,0,0" Grid.Row="11" VerticalAlignment="Top" Height="38" Width="159" Background="PaleTurquoise" FontWeight="Bold"/>
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="37,0,0,0" Grid.Row="10" TextWrapping="Wrap" VerticalAlignment="Center" Width="315" Height="34"/>
 
 
     </Grid>
