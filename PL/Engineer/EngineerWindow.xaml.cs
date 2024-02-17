@@ -16,10 +16,28 @@ namespace PL.Engineer
 {
     /// <summary>
     /// Interaction logic for EngineerWindow.xaml
+    /// This class represents the window for managing engineers.
     /// </summary>
     public partial class EngineerWindow : Window
     {
         static readonly BlApi.IBl s_bl = BlApi.Factory.Get();
+        /// Gets or sets the Engineer property.
+        /// Represents the engineer whose details are being managed.
+        public BO.Engineer Engineer
+        {
+            get { return (BO.Engineer)GetValue(EngineerProperty); }
+            set { SetValue(EngineerProperty, value); }
+        }
+
+        /// Identifies the Engineer dependency property.
+        public static readonly DependencyProperty EngineerProperty =
+            DependencyProperty.Register("Engineer", typeof(BO.Engineer), typeof(EngineerWindow), new PropertyMetadata(null));
+
+        /// <summary>
+        /// Constructor for EngineerWindow class.
+        /// Initializes a new instance of the EngineerWindow class.
+        /// </summary>
+        /// <param name="Id">The ID of the engineer. Defaults to 0.</param>
         public EngineerWindow(int Id = 0)
         {
             InitializeComponent();
@@ -40,6 +58,8 @@ namespace PL.Engineer
             }
         }
 
+        /// Handles the click event of the Save button.
+        /// Saves the engineer details if adding a new engineer or updates existing engineer details.
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -71,14 +91,7 @@ namespace PL.Engineer
                 }
             }
         }
-        public BO.Engineer Engineer
-        {
-            get { return (BO.Engineer)GetValue(EngineerProperty); }
-            set { SetValue(EngineerProperty, value); }
-        }
 
-        public static readonly DependencyProperty EngineerProperty =
-            DependencyProperty.Register("Engineer", typeof(BO.Engineer), typeof(EngineerWindow), new PropertyMetadata(null));
-
+       
     }
 }

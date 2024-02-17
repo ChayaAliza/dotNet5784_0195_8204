@@ -77,10 +77,23 @@
             </ListView.View>
         </ListView>
         <Label Content="Label" HorizontalAlignment="Left" Margin="209,42,0,0" Grid.Row="12" VerticalAlignment="Top"/>
-        <Button Grid.Column="2" Content="Add dependency" HorizontalAlignment="Left" Margin="78,15,0,0" Grid.Row="11" VerticalAlignment="Top" Height="38" Width="159" Background="PaleTurquoise" FontWeight="Bold"/>
-        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="37,0,0,0" Grid.Row="10" TextWrapping="Wrap" VerticalAlignment="Center" Width="315" Height="34"/>
 
 
+
+        <Label Grid.Row="10" Grid.Column="2" Content="Choose dependency:" FontWeight="Bold" FontSize="15" Margin="58,14,-40,53" Grid.RowSpan="2"/>
+        <ComboBox Grid.Row="11" Grid.Column="2" ItemsSource="{Binding TaskList}"    
+    SelectedValue="{Binding CheckedDependTask, Mode=TwoWay}"
+    SelectedValuePath="Id"
+    SelectionChanged="cbCheckedDependTask_SelectionChanged" Margin="10,3,51,8">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Alias}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Description}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </Window>
 
